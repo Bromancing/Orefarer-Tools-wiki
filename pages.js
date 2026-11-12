@@ -119,7 +119,42 @@ function bindRefining() {
     update();
 }
 
-function profileUI() { return panel('Character profile — baseline by default', `<p>Skills determine unlocks; talent ranks change most bonuses. Every skill level-up grants one Talent Point. Rank 0 is the unmodified game baseline.</p><div><h3>Skill unlocks</h3><div class="profile skill-top">${['Captain', 'Drone Operator'].map(k => `<label>${esc(k)} level<input type="number" min="0" step="1" data-skill="${esc(k)}" value="${skill(k)}"></label>`).join('')}</div><p class="muted small">Captain: T1 for everyone, T2 at level 10, T3 at level 20. Drone Operator: 2 drones by default, 3 at level 10, 4 at level 20.</p></div><div><h3>Talent ranks</h3><div class="profile talent-grid">${D.talent_definitions.slice().sort((a, b) => a[0].localeCompare(b[0])).map(([name, effect, per, unit, comp]) => `<label>${esc(name)}<span class="small muted">${esc(effect)}: ${per}${unit === 'percent' ? '%' : unit === 'm3' ? ' m³' : ' slots'}/rank${comp ? ' (compounded)' : ''}</span><input type="number" min="0" step="1" data-talent="${esc(name)}" value="${rank(name)}"></label>`).join('')}</div></div><p><button class="action" id="reset">Reset to baseline</button></p><div id="profileout" class="subresult"></div>`) + note; }
+// Talent groups and order match the in-game Talent screen screenshots.
+const TALENT_GROUPS = [
+  ['Flight', ['Piloting', 'Drone Operator']],
+  ['Mining', ['Iron Miner', 'Copper Miner', 'Silicon Miner', 'Carbon Miner', 'Titanium Miner', 'Silver Miner', 'Gold Miner', 'Uranium Miner']],
+  ['Production', ['Refiner', 'Printer', 'Fabricator', 'Shipwright', 'Industrialist']],
+  ['Cargo & Storage', ['Cargo Management', 'Drone Logistics', 'Heavy Hauler', 'Tetris Master']],
+  ['Contracts', ['Contract Negotiator', 'Contract Specialist']]
+];
+
+function talentField(definition) {
+  const [name, effect, per, unit, compounded] = definition;
+  const suffix = unit === 'percent' ? '%' : unit === 'm3' ? ' m³' : ' slots';
+  return `<label>${esc(name)}<span class="small muted">${esc(effect)}: ${per}${suffix}/rank${compounded ? ' (compounded)' : ''}</span><input type="number" min="0" step="1" data-talent="${esc(name)}" value="${rank(name)}"></label>`;
+}
+
+function talentGroupsUI() {
+  const definitions = new Map(D.talent_definitions.map(def => [def[0], def]));
+  return TALENT_GROUPS.map(([group, names]) => {
+    const fields = names.map(name => definitions.get(name)).filter(Boolean).map(talentField).join('');
+    return `<section class="talent-group"><h3>${esc(group)}</h3><div class="profile talent-grid">${fields}</div></section>`;
+  }).join('');
+}
+
+function profileUI() {
+  const skills = ['Captain', 'Drone Operator'].map(name => `<label>${esc(name)} level<input type="number" min="0" step="1" data-skill="${esc(name)}" value="${skill(name)}"></label>`).join('');
+  return panel('Character profile — baseline by default', `
+    <p>Skills determine unlocks; talent ranks change most bonuses. Every skill level-up grants one Talent Point. Rank 0 is the unmodified game baseline.</p>
+    <h3>Skill unlocks</h3>
+    <div class="profile skill-top">${skills}</div>
+    <p class="muted small">Captain: T1 for everyone, T2 at level 10, T3 at level 20. Drone Operator: 2 drones by default, 3 at level 10, 4 at level 20.</p>
+    <h3>Talent ranks</h3>
+    ${talentGroupsUI()}
+    <p><button class="action" id="reset">Reset to baseline</button></p>
+    <div id="profileout" class="subresult"></div>
+  `) + note;
+}
 
 function bindProfile() { document.querySelectorAll('[data-skill]').forEach(el => el.oninput = () => { window.profile.skills[el.dataset.skill] = n(el.value); profileSummary(); save(); }); document.querySelectorAll('[data-talent]').forEach(el => el.oninput = () => { window.profile.talents[el.dataset.talent] = n(el.value); profileSummary(); save(); }); $('reset').onclick = () => { window.profile = JSON.parse(JSON.stringify(D.character_defaults)); save(); render(); }; profileSummary(); }
 

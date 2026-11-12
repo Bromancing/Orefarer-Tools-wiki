@@ -673,3 +673,7 @@ sup {
 
 }
 
+
+/* In-game talent category ordering. */
+.talent-group { margin: 16px 0 24px; }
+.talent-group h3 { margin: 0 0 10px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
