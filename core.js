@@ -73,7 +73,7 @@ const selected = (id, val) => saved.calcs[id] === val ? ' selected' : '';
 
 const resetCalcs = () => { saved.calcs = {}; save(); render(); };
 
-const resetAll = () => { saved.cart = {}; saved.calcs = {}; window.profile = JSON.parse(JSON.stringify(D.character_defaults)); save(); render(); };
+const resetAll = () => { draftRanks = {}; saved.cart = {}; saved.calcs = {}; window.profile = JSON.parse(JSON.stringify(D.character_defaults)); save(); render(); };
 
 const resetButton = (scope) => `<div class="reset-tools"><button class="action" data-reset="${scope}">Reset calculator</button></div>`;
 

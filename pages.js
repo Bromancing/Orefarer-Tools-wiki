@@ -119,46 +119,148 @@ function bindRefining() {
     update();
 }
 
-// Talent groups and order match the in-game Talent screen screenshots.
-const TALENT_GROUPS = [
-  ['Flight', ['Piloting', 'Drone Operator', 'Wallet Capacity']],
-  ['Mining', ['Iron Miner', 'Copper Miner', 'Silicon Miner', 'Carbon Miner', 'Titanium Miner', 'Silver Miner', 'Gold Miner', 'Uranium Miner']],
-  ['Production', ['Refiner', 'Printer', 'Fabricator', 'Shipwright', 'Industrialist']],
-  ['Cargo & Storage', ['Cargo Management', 'Drone Logistics', 'Heavy Hauler', 'Tetris Master']],
-  ['Contracts', ['Contract Negotiator', 'Contract Specialist']]
-];
+// Order follows the Skills and Talents tabs on MMO main.
+const profileSkills = {
+    Miner: 'Extract ore from asteroids.',
+    Refiner: 'Refine raw materials at a station.',
+    Printer: 'Print components at a station.',
+    Fabricator: 'Fabricate equipment at a station.',
+    Builder: 'Supply construction projects.',
+    Trader: 'Trade goods on the market.',
+    'Drone Operator': 'Gain one active hauling drone slot every ten levels.',
+    Captain: 'Unlock tier 2 ships at level 10 and tier 3 at level 20.',
+    Explorer: 'Discover new coordinates.',
+    'Long Distance Traveler': 'Gain five Silver Coin wallet spaces every ten levels.',
+};
 
-function talentField(definition) {
-  const [name, effect, per, unit, compounded] = definition;
-  const suffix = unit === 'percent' ? '%' : unit === 'm3' ? ' m³' : unit === 'coins' ? ' coins' : ' slots';
-  return `<label>${esc(name)}<span class="small muted">${esc(effect)}: ${per}${suffix}/rank${compounded ? ' (compounded)' : ''}</span><input type="number" min="0" step="1" data-talent="${esc(name)}" value="${rank(name)}"></label>`;
+const talentGroups = {
+    Flight: ['Piloting', 'Drone Operator', 'Wallet Capacity'],
+    Mining: ORE_ORDER.map(ore => ore + ' Miner'),
+    Production: ['Refiner', 'Printer', 'Fabricator', 'Shipwright', 'Industrialist'],
+    'Cargo & Storage': ['Cargo Management', 'Drone Logistics', 'Heavy Hauler', 'Tetris Master'],
+    Contracts: ['Contract Negotiator', 'Contract Specialist'],
+};
+
+let profilePage = 'Skills';
+let draftRanks = {};
+const rankCost = value => value * (value + 1) / 2;
+const xpThresholds = [0, 0];
+let points = 0;
+while (xpThresholds.at(-1) <= Number.MAX_SAFE_INTEGER) {
+    const level = xpThresholds.length - 1;
+    points += Math.floor(level + 300 * 2 ** (level / 7));
+    xpThresholds.push(Math.round(Math.floor(points / 4) * (100 / 83)));
 }
 
-function talentGroupsUI() {
-  const definitions = new Map(D.talent_definitions.map(def => [def[0], def]));
-  return TALENT_GROUPS.map(([group, names]) => {
-    const fields = names.map(name => definitions.get(name)).filter(Boolean).map(talentField).join('');
-    return `<section class="talent-group"><h3>${esc(group)}</h3><div class="profile talent-grid">${fields}</div></section>`;
-  }).join('');
+function skillProgress(name) {
+    // Older profiles stored only the level. Start them at its XP threshold.
+    const oldLevel = Math.min(xpThresholds.length - 2, Math.max(1, Math.floor(skill(name))));
+    const xp = window.profile.skillXp?.[name] ?? xpThresholds[oldLevel];
+    const level = xpThresholds.findIndex(threshold => threshold > xp) - 1;
+    return { xp, level, earned: xp - xpThresholds[level], required: xpThresholds[level + 1] - xpThresholds[level] };
+}
+
+function profileBudget() {
+    const skills = Object.keys(profileSkills).map(skillProgress);
+    const earned = skills.reduce((sum, skill) => sum + skill.level - 1, 0);
+    const spent = D.talent_definitions.reduce((sum, [name]) => sum + rankCost(rank(name)), 0);
+    const planned = Object.entries(draftRanks).reduce((sum, [name, value]) =>
+        sum + rankCost(value) - rankCost(rank(name)), 0);
+    return { earned, spent, planned, available: earned - spent - planned,
+        totalXp: skills.reduce((sum, skill) => sum + skill.xp, 0) };
+}
+
+function skillRows(budget) {
+    const matches = name => (name + ' ' + profileSkills[name]).toLowerCase().includes($('search').value.toLowerCase());
+    return `<div class="profile-stat">Total XP <strong>${budget.totalXp.toLocaleString()}</strong></div>
+        <div class="profile-stat">Character level <strong>${budget.earned + 1}</strong></div>
+        <h3>Skills</h3>` + Object.keys(profileSkills).filter(matches).map(name => {
+        const { level, xp, earned, required } = skillProgress(name);
+        return `<div class="wiki-skill" title="${esc(profileSkills[name])}">
+            <div class="profile-stat"><strong>${esc(name)}</strong><div class="skill-values">
+            <label>Level <input type="number" aria-label="${esc(name)} level" min="1" max="${xpThresholds.length - 2}" value="${level}" data-level="${esc(name)}"></label>
+            <label>Total XP <input type="number" aria-label="${esc(name)} total XP" min="0" step="1" max="${Number.MAX_SAFE_INTEGER}" value="${xp}" data-xp="${esc(name)}"></label>
+            <span>${earned.toLocaleString()} / ${required.toLocaleString()} XP</span></div></div>
+            <progress aria-label="${esc(name)} progress to next level" value="${earned}" max="${required}"></progress>
+            </div>`;
+    }).join('');
+}
+
+function talentBenefit(def, value) {
+    const [, , per, unit, compounded] = def;
+    const amount = compounded ? 100 * ((1 - per / 100) ** value - 1) : value * per;
+    const suffix = { percent: '%', m3: ' m³', coins: ' capacity', slots: ' slots' }[unit];
+    return (amount < 0 ? '' : '+') + Number(amount.toFixed(2)) + suffix;
+}
+
+function talentRows(budget) {
+    const definitions = new Map(D.talent_definitions.map(def => [def[0], def]));
+    const groups = Object.entries(talentGroups).map(([group, names]) => {
+        const rows = names.filter(name => (group + ' ' + definitions.get(name).slice(0, 2).join(' ')).toLowerCase().includes($('search').value.toLowerCase())).map(name => {
+            const def = definitions.get(name), current = rank(name), target = draftRanks[name] ?? current;
+            const changed = current !== target;
+            const previous = changed ? `<span class="muted">${talentBenefit(def, current)} (rank ${current}) → </span>` : '';
+            return `<article class="wiki-talent" data-planned="${changed}"><div class="talent-heading">
+                <strong>${esc(name)}</strong><span>${previous}${talentBenefit(def, target)} (rank ${target})</span>
+                <div class="rank-actions"><button type="button" data-minus="${esc(name)}" aria-label="Undo planned rank for ${esc(name)}" ${changed ? '' : 'disabled'}>−</button>
+                <button type="button" data-plus="${esc(name)}" aria-label="Increase ${esc(name)} rank" ${budget.available >= target + 1 ? '' : 'disabled'}>+</button>
+                <small>${target + 1} TP</small></div></div>
+                <div class="small muted">${esc(def[1])} · ${talentBenefit(def, 1)} per rank${def[4] ? ' compounded' : ''}</div></article>`;
+        });
+        return rows.length ? `<section class="talent-group"><h3>${esc(group)}</h3>${rows.join('')}</section>` : '';
+    });
+    return `<div class="profile-stat"><strong>Available Talent Points: ${budget.available}</strong>
+        <button class="action" id="apply-ranks" ${budget.planned && budget.available >= 0 ? '' : 'disabled'}>Apply (${budget.planned} TP)</button></div>
+        <p class="small muted">${budget.earned} earned · ${budget.spent} spent · ${budget.planned} planned. Each skill level above one earns a Talent Point.</p>` + groups.join('');
 }
 
 function profileUI() {
-  const skills = ['Captain', 'Drone Operator', 'Long Distance Traveler'].map(name => `<label>${esc(name)} level<input type="number" min="0" step="1" data-skill="${esc(name)}" value="${skill(name)}"></label>`).join('');
-  return panel('Character profile — baseline by default', `
-    <p>Skills determine unlocks; talent ranks change most bonuses. Every skill level-up grants one Talent Point. Rank 0 is the unmodified game baseline.</p>
-    <h3>Skill unlocks</h3>
-    <div class="profile skill-top">${skills}</div>
-    <p class="muted small">Captain: T1 for everyone, T2 at level 10, T3 at level 20. Drone Operator: 2 drones plus one per ten levels. The wallet holds 10 Silver Coins, plus five per ten Long Distance Traveler levels and two per Wallet Capacity rank.</p>
-    <h3>Talent ranks</h3>
-    ${talentGroupsUI()}
-    <p><button class="action" id="reset">Reset to baseline</button></p>
-    <div id="profileout" class="subresult"></div>
-  `);
+    const budget = profileBudget();
+    const tabs = ['Skills', 'Talents'].map(name => `<button class="action" data-profile-page="${name}" aria-pressed="${name === profilePage}">${name}</button>`).join('');
+    return panel('Skills & Talents', `<div class="profile-tabs" role="group" aria-label="Profile pages">${tabs}</div>
+        ${profilePage === 'Skills' ? skillRows(budget) : talentRows(budget)}
+        <p><button class="action" id="reset">Reset profile to baseline</button></p>`);
 }
 
-function bindProfile() { document.querySelectorAll('[data-skill]').forEach(el => el.oninput = () => { window.profile.skills[el.dataset.skill] = n(el.value); profileSummary(); save(); }); document.querySelectorAll('[data-talent]').forEach(el => el.oninput = () => { window.profile.talents[el.dataset.talent] = n(el.value); profileSummary(); save(); }); $('reset').onclick = () => { window.profile = JSON.parse(JSON.stringify(D.character_defaults)); save(); render(); }; profileSummary(); }
-
-function profileSummary() { let drones = droneLimit(); let tier = skill('Captain') >= 20 ? 3 : skill('Captain') >= 10 ? 2 : 1; $('profileout').textContent = `Maximum ship tier T${tier}; drone control limit ${drones}; wallet capacity ${10 + 5 * Math.floor(skill('Long Distance Traveler') / 10) + 2 * rank('Wallet Capacity')} Silver Coins; refining fee ${f(fee(1))}c/m³; printing speed +${rank('Printer') * 2}%; fabrication speed +${rank('Fabricator') * 2}%.`; }
+function bindProfile() {
+    document.querySelectorAll('[data-profile-page]').forEach(button => button.onclick = () => {
+        profilePage = button.dataset.profilePage;
+        $('search').value = '';
+        render();
+        document.querySelector('[data-profile-page][aria-pressed="true"]').focus();
+    });
+    document.querySelectorAll('[data-level], [data-xp]').forEach(input => input.onchange = () => {
+        const value = input.valueAsNumber;
+        if (!Number.isSafeInteger(value) || !input.validity.valid) { render(); return; }
+        const name = input.dataset.level ?? input.dataset.xp;
+        window.profile.skillXp ??= {};
+        window.profile.skillXp[name] = input.dataset.level ? xpThresholds[value] : value;
+        window.profile.skills[name] = skillProgress(name).level;
+        save();
+        render();
+    });
+    document.querySelectorAll('[data-plus], [data-minus]').forEach(button => button.onclick = () => {
+        const name = button.dataset.plus ?? button.dataset.minus;
+        const target = (draftRanks[name] ?? rank(name)) + (button.dataset.plus ? 1 : -1);
+        if (target === rank(name)) delete draftRanks[name];
+        else draftRanks[name] = target;
+        render();
+    });
+    if ($('apply-ranks')) $('apply-ranks').onclick = () => {
+        const budget = profileBudget();
+        if (!budget.planned || budget.available < 0) return;
+        Object.assign(window.profile.talents, draftRanks);
+        draftRanks = {};
+        save();
+        render();
+    };
+    $('reset').onclick = () => {
+        window.profile = structuredClone(D.character_defaults);
+        draftRanks = {};
+        save();
+        render();
+    };
+}
 
 /** Build the Overview section. */
 function renderOverviewPage() {

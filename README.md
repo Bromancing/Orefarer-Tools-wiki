@@ -20,6 +20,10 @@ If your browser blocks local scripts, serve the folder using a local HTTP server
 - `cart.js`: Shopping cart and crafting-material breakdown.
 - `bootstrap.js`: Navigation and startup.
 
+## Skills and talents
+
+In **Skills & Talents**, enter skill levels or total XP on the Skills tab. On the Talents tab, use + and − to plan ranks, then select **Apply** to save them to the local calculator profile. Each skill level above one grants a Talent Point. Older saved levels start at the minimum XP for that level.
+
 ## Community projects
 
 The outdated project directory was removed. The Stations & Projects page now contains a hypothetical project example explaining the mechanics. It does **not** claim to show currently active projects.
