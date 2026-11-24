@@ -2,7 +2,22 @@
 
 function draw() { document.querySelectorAll('nav button').forEach(x => x.classList.toggle('active', x.dataset.page === active)); render(); }
 
-function init(d) { D = d; window.profile = saved.profile && typeof saved.profile === 'object' ? saved.profile : JSON.parse(JSON.stringify(D.character_defaults)); $('nav').innerHTML = sections.map(x => `<button data-page="${esc(x)}">${esc(x)}</button>`).join(''); $('nav').onclick = e => { let p = e.target.dataset.page; if (p) {
+function migrateItemNames() {
+    for (const [kind, oldName, name] of [
+        ['refined', 'Fuel', 'Liquid Hydrogen'],
+        ['printed', 'Fuel Cartridge', 'Liquid Hydrogen Cartridge'],
+    ]) {
+        const oldKey = cartKey(kind, oldName);
+        const item = saved.cart[oldKey];
+        if (!item) continue;
+        const key = cartKey(kind, name);
+        saved.cart[key] = { kind, name, qty: n(saved.cart[key]?.qty) + n(item.qty) };
+        delete saved.cart[oldKey];
+    }
+    if (saved.calcs.recipe === 'Fuel Cartridge') saved.calcs.recipe = 'Liquid Hydrogen Cartridge';
+}
+
+function init(d) { D = d; migrateItemNames(); window.profile = saved.profile && typeof saved.profile === 'object' ? saved.profile : JSON.parse(JSON.stringify(D.character_defaults)); $('nav').innerHTML = sections.map(x => `<button data-page="${esc(x)}">${esc(x)}</button>`).join(''); $('nav').onclick = e => { let p = e.target.dataset.page; if (p) {
     active = p;
     $('search').value = '';
     draw();

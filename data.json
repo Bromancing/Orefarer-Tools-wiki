@@ -1,5 +1,5 @@
 {
-  "version": "13",
+  "version": "1.01",
   "currency": "c",
   "units": {
     "raw_refined": "m3",
@@ -17,351 +17,365 @@
     "Uranium"
   ],
   "refining": {
-    "fee_c_per_m3_output_character": 0.96,
-    "base_fee_c_per_m3_output_estimate": 1,
-    "ice_to_water": "purity fraction",
-    "water_to_fuel": 0.2,
-    "steel": {
-      "Iron": 1,
-      "Carbon": 0.2,
-      "output_m3": 0.4
-    },
-    "titanium_steel": {
-      "Iron": 1,
-      "Carbon": 0.3,
-      "Titanium": 0.3,
-      "output_m3": 0.4
+    "products": {
+      "Liquid Hydrogen": {
+        "inputs": {
+          "Water": 5
+        },
+        "output": 1,
+        "seconds": 50
+      },
+      "Methane": {
+        "inputs": {
+          "Water": 1.9,
+          "Carbon": 0.29
+        },
+        "output": 2,
+        "seconds": 60
+      },
+      "Steel": {
+        "inputs": {
+          "Iron": 1,
+          "Carbon": 0.2
+        },
+        "output": 0.4,
+        "seconds": 12
+      },
+      "Titanium Steel": {
+        "inputs": {
+          "Iron": 1,
+          "Carbon": 0.3,
+          "Titanium": 0.3
+        },
+        "output": 0.4,
+        "seconds": 12
+      }
     }
   },
   "printing": [
     {
-      "name": "Fuel Cartridge",
+      "id": "silver_coin",
+      "name": "Silver Coin",
       "inputs_m3": {
-        "Fuel": 10,
+        "Silver": 5
+      },
+      "base_fee_c": 5,
+      "base_seconds": 300,
+      "listing_limit_c": 8961.25
+    },
+    {
+      "id": "magnetic_pulse_coil",
+      "name": "Magnetic Pulse Coil",
+      "inputs_m3": {
+        "Copper": 4,
+        "Titanium": 3,
+        "Silicon": 2
+      },
+      "base_fee_c": 9,
+      "base_seconds": 540,
+      "listing_limit_c": 5328
+    },
+    {
+      "id": "chemical_fuel_cartridge",
+      "name": "Liquid Hydrogen Cartridge",
+      "inputs_m3": {
+        "Liquid Hydrogen": 10,
         "Carbon": 1
       },
-      "time_display": "10m 48s",
-      "fee_c": 10.56,
-      "status": "screenshot verified; character adjusted",
-      "base_fee_c_estimate": 11,
-      "base_seconds_estimate": 661
+      "base_fee_c": 5.5,
+      "base_seconds": 330,
+      "listing_limit_c": 12718.25
     },
     {
-      "name": "Carbon Fiber Hull Frame",
-      "inputs_m3": {
-        "Titanium": 4,
-        "Carbon": 6
-      },
-      "time_display": "9m 49s",
-      "fee_c": 9.6,
-      "status": "screenshot verified; character adjusted",
-      "base_fee_c_estimate": 10,
-      "base_seconds_estimate": 601
-    },
-    {
-      "name": "Structural Frame",
-      "inputs_m3": {
-        "Iron": 6
-      },
-      "time_display": "5m 53s",
-      "fee_c": 5.76,
-      "status": "screenshot verified; character adjusted",
-      "base_fee_c_estimate": 6,
-      "base_seconds_estimate": 360
-    },
-    {
+      "id": "fuel_cartridge",
       "name": "Nuclear Fuel Cartridge",
       "inputs_m3": {
         "Uranium": 1,
         "Carbon": 1
       },
-      "time_display": "1m 58s",
-      "fee_c": 1.92,
-      "status": "screenshot verified; character adjusted",
-      "base_fee_c_estimate": 2,
-      "base_seconds_estimate": 120
+      "base_fee_c": 6,
+      "base_seconds": 360,
+      "listing_limit_c": 7849.5
     },
     {
+      "id": "carbon_fiber_hull_frame",
+      "name": "Carbon Fiber Hull Frame",
+      "inputs_m3": {
+        "Titanium": 4,
+        "Carbon": 6
+      },
+      "base_fee_c": 10,
+      "base_seconds": 600,
+      "listing_limit_c": 7468.5
+    },
+    {
+      "id": "structural_frame",
+      "name": "Structural Frame",
+      "inputs_m3": {
+        "Iron": 6
+      },
+      "base_fee_c": 6,
+      "base_seconds": 360,
+      "listing_limit_c": 1972.5
+    },
+    {
+      "id": "steel_frame",
       "name": "Steel Frame",
       "inputs_m3": {
         "Steel": 6
       },
-      "time_display": "5m 53s",
-      "fee_c": 5.76,
-      "status": "screenshot verified; character adjusted",
-      "base_fee_c_estimate": 6,
-      "base_seconds_estimate": 360
+      "base_fee_c": 6,
+      "base_seconds": 360,
+      "listing_limit_c": 6373.5
     },
     {
+      "id": "titanium_steel_frame",
       "name": "Titanium Steel Frame",
       "inputs_m3": {
         "Titanium Steel": 6
       },
-      "time_display": "5m 53s",
-      "fee_c": 5.76,
-      "status": "screenshot verified; character adjusted",
-      "base_fee_c_estimate": 6,
-      "base_seconds_estimate": 360
+      "base_fee_c": 6,
+      "base_seconds": 360,
+      "listing_limit_c": 11164.5
     },
     {
+      "id": "wiring_bundle",
       "name": "Wiring Bundle",
       "inputs_m3": {
         "Copper": 3
       },
-      "time_display": "2m 57s",
-      "fee_c": 2.88,
-      "status": "screenshot verified; character adjusted",
-      "base_fee_c_estimate": 3,
-      "base_seconds_estimate": 181
+      "base_fee_c": 3,
+      "base_seconds": 180,
+      "listing_limit_c": 1195.5
     },
     {
-      "name": "Silver-Plated Circuit Board",
-      "inputs_m3": {
-        "Silicon": 4,
-        "Copper": 2,
-        "Silver": 2
-      },
-      "time_display": "7m 51s",
-      "fee_c": 7.68,
-      "status": "screenshot verified; character adjusted",
-      "base_fee_c_estimate": 8,
-      "base_seconds_estimate": 480
-    },
-    {
-      "name": "Circuit Board",
-      "inputs_m3": {
-        "Silicon": 2,
-        "Copper": 1
-      },
-      "time_display": "2m 57s",
-      "fee_c": 2.88,
-      "status": "screenshot verified; character adjusted",
-      "base_fee_c_estimate": 3,
-      "base_seconds_estimate": 181
-    },
-    {
+      "id": "hull_panel",
       "name": "Hull Panel",
       "inputs_m3": {
         "Iron": 8,
         "Carbon": 2
       },
-      "time_display": "9m 49s",
-      "fee_c": 9.6,
-      "status": "screenshot verified; character adjusted",
-      "base_fee_c_estimate": 10,
-      "base_seconds_estimate": 601
+      "base_fee_c": 10,
+      "base_seconds": 600,
+      "listing_limit_c": 3891.5
     },
     {
-      "name": "Gold-Plated Circuit Board",
+      "id": "circuit_board",
+      "name": "Circuit Board",
+      "inputs_m3": {
+        "Silicon": 2,
+        "Copper": 1
+      },
+      "base_fee_c": 3,
+      "base_seconds": 180,
+      "listing_limit_c": 1369.5
+    },
+    {
+      "id": "silver_plated_circuit_board",
+      "name": "Silver-plated Circuit Board",
+      "inputs_m3": {
+        "Silicon": 4,
+        "Copper": 2,
+        "Silver": 2
+      },
+      "base_fee_c": 8,
+      "base_seconds": 480,
+      "listing_limit_c": 6323.5
+    },
+    {
+      "id": "gold_plated_circuit_board",
+      "name": "Gold-plated Circuit Board",
       "inputs_m3": {
         "Silicon": 4,
         "Copper": 2,
         "Gold": 2
       },
-      "time_display": "7m 51s",
-      "fee_c": 7.68,
-      "status": "screenshot verified; character adjusted",
-      "base_fee_c_estimate": 8,
-      "base_seconds_estimate": 480
+      "base_fee_c": 8,
+      "base_seconds": 480,
+      "listing_limit_c": 7485
     },
     {
+      "id": "heat_sink",
       "name": "Heat Sink",
       "inputs_m3": {
         "Iron": 2,
-        "Copper": 1
+        "Copper": 2
       },
-      "time_display": "3m 56s",
-      "fee_c": 3.84,
-      "status": "screenshot verified; character adjusted",
-      "base_fee_c_estimate": 4,
-      "base_seconds_estimate": 241
+      "base_fee_c": 4,
+      "base_seconds": 240,
+      "listing_limit_c": 1454.5
     },
     {
+      "id": "composite_panel",
       "name": "Composite Panel",
       "inputs_m3": {
         "Carbon": 4,
         "Iron": 2
       },
-      "time_display": "5m 53s",
-      "fee_c": 5.76,
-      "status": "screenshot verified; character adjusted",
-      "base_fee_c_estimate": 6,
-      "base_seconds_estimate": 360
+      "base_fee_c": 6,
+      "base_seconds": 360,
+      "listing_limit_c": 3180.5
     },
     {
-      "name": "Pressure Vessel",
+      "id": "titanium_brace",
+      "name": "Titanium Brace",
       "inputs_m3": {
-        "Iron": 4,
-        "Titanium": 2
+        "Titanium": 3,
+        "Iron": 1
       },
-      "time_display": "5m 53s",
-      "fee_c": 5.76,
-      "status": "screenshot verified; character adjusted",
-      "base_fee_c_estimate": 6,
-      "base_seconds_estimate": 360
+      "base_fee_c": 4,
+      "base_seconds": 240,
+      "listing_limit_c": 3091.75
     },
     {
+      "id": "actuator",
       "name": "Actuator",
       "inputs_m3": {
         "Iron": 2,
         "Copper": 1,
         "Carbon": 1
       },
-      "time_display": "3m 56s",
-      "fee_c": 3.84,
-      "status": "screenshot verified; character adjusted",
-      "base_fee_c_estimate": 4,
-      "base_seconds_estimate": 241
+      "base_fee_c": 4,
+      "base_seconds": 240,
+      "listing_limit_c": 1686.75
     },
     {
-      "name": "Titanium Brace",
+      "id": "pressure_vessel",
+      "name": "Pressure Vessel",
       "inputs_m3": {
-        "Titanium": 3,
-        "Iron": 1
+        "Iron": 4,
+        "Titanium": 2
       },
-      "time_display": "3m 56s",
-      "fee_c": 3.84,
-      "status": "screenshot verified; character adjusted",
-      "base_fee_c_estimate": 4,
-      "base_seconds_estimate": 241
+      "base_fee_c": 6,
+      "base_seconds": 360,
+      "listing_limit_c": 3157
     },
     {
-      "name": "Radiation Shield",
-      "inputs_m3": {
-        "Iron": 3,
-        "Titanium": 2,
-        "Carbon": 3
-      },
-      "time_display": "7m 51s",
-      "fee_c": 7.68,
-      "status": "screenshot verified; character adjusted",
-      "base_fee_c_estimate": 8,
-      "base_seconds_estimate": 480
-    },
-    {
-      "name": "Ceramic Liner",
-      "inputs_m3": {
-        "Silicon": 3,
-        "Carbon": 2
-      },
-      "time_display": "4m 55s",
-      "fee_c": 4.8,
-      "status": "screenshot verified; character adjusted",
-      "base_fee_c_estimate": 5,
-      "base_seconds_estimate": 301
-    },
-    {
+      "id": "sensor_array",
       "name": "Sensor Array",
       "inputs_m3": {
         "Silicon": 1,
         "Copper": 1,
         "Gold": 0.5
       },
-      "time_display": "2m 28s",
-      "fee_c": 2.4,
-      "status": "screenshot verified; character adjusted",
-      "base_fee_c_estimate": 2,
-      "base_seconds_estimate": 151
+      "base_fee_c": 2.5,
+      "base_seconds": 150,
+      "listing_limit_c": 2070.5
     },
     {
-      "name": "Carbon Laser Head",
+      "id": "ceramic_liner",
+      "name": "Ceramic Liner",
       "inputs_m3": {
-        "Carbon": 10,
-        "Iron": 5
+        "Silicon": 3,
+        "Carbon": 2
       },
-      "time_display": "14m 43s",
-      "fee_c": 14.41,
-      "status": "screenshot verified; character adjusted",
-      "base_fee_c_estimate": 15,
-      "base_seconds_estimate": 901
+      "base_fee_c": 5,
+      "base_seconds": 300,
+      "listing_limit_c": 2718
     },
     {
-      "name": "Copper Laser Head",
+      "id": "radiation_shield",
+      "name": "Radiation Shield",
       "inputs_m3": {
-        "Copper": 11,
-        "Iron": 4
+        "Iron": 3,
+        "Titanium": 2,
+        "Carbon": 3
       },
-      "time_display": "14m 43s",
-      "fee_c": 14.41,
-      "status": "screenshot verified; character adjusted",
-      "base_fee_c_estimate": 15,
-      "base_seconds_estimate": 901
+      "base_fee_c": 8,
+      "base_seconds": 480,
+      "listing_limit_c": 4720.5
     },
     {
-      "name": "Gold Laser Head",
-      "inputs_m3": {
-        "Gold": 7,
-        "Copper": 5,
-        "Silicon": 3
-      },
-      "time_display": "14m 43s",
-      "fee_c": 14.41,
-      "status": "screenshot verified; character adjusted",
-      "base_fee_c_estimate": 15,
-      "base_seconds_estimate": 901
-    },
-    {
+      "id": "iron_laser_head",
       "name": "Iron Laser Head",
       "inputs_m3": {
         "Iron": 12,
         "Copper": 3
       },
-      "time_display": "14m 43s",
-      "fee_c": 14.41,
-      "status": "screenshot verified; character adjusted",
-      "base_fee_c_estimate": 15,
-      "base_seconds_estimate": 901
+      "base_fee_c": 15,
+      "base_seconds": 900,
+      "listing_limit_c": 5140.5
     },
     {
+      "id": "copper_laser_head",
+      "name": "Copper Laser Head",
+      "inputs_m3": {
+        "Copper": 11,
+        "Iron": 4
+      },
+      "base_fee_c": 15,
+      "base_seconds": 900,
+      "listing_limit_c": 5698.5
+    },
+    {
+      "id": "silicon_laser_head",
       "name": "Silicon Laser Head",
       "inputs_m3": {
         "Silicon": 10,
         "Copper": 5
       },
-      "time_display": "14m 43s",
-      "fee_c": 14.41,
-      "status": "screenshot verified; character adjusted",
-      "base_fee_c_estimate": 15,
-      "base_seconds_estimate": 901
+      "base_fee_c": 15,
+      "base_seconds": 900,
+      "listing_limit_c": 6847.5
     },
     {
-      "name": "Silver Laser Head",
+      "id": "carbon_laser_head",
+      "name": "Carbon Laser Head",
       "inputs_m3": {
-        "Silver": 7,
-        "Copper": 5,
-        "Silicon": 3
+        "Carbon": 10,
+        "Iron": 5
       },
-      "time_display": "14m 43s",
-      "fee_c": 14.41,
-      "status": "screenshot verified; character adjusted",
-      "base_fee_c_estimate": 15,
-      "base_seconds_estimate": 901
+      "base_fee_c": 15,
+      "base_seconds": 900,
+      "listing_limit_c": 7951.25
     },
     {
+      "id": "titanium_laser_head",
       "name": "Titanium Laser Head",
       "inputs_m3": {
         "Titanium": 8,
         "Iron": 4,
         "Copper": 3
       },
-      "time_display": "14m 43s",
-      "fee_c": 14.41,
-      "status": "screenshot verified; character adjusted",
-      "base_fee_c_estimate": 15,
-      "base_seconds_estimate": 901
+      "base_fee_c": 15,
+      "base_seconds": 900,
+      "listing_limit_c": 9878.5
     },
     {
+      "id": "silver_laser_head",
+      "name": "Silver Laser Head",
+      "inputs_m3": {
+        "Silver": 7,
+        "Copper": 5,
+        "Silicon": 3
+      },
+      "base_fee_c": 15,
+      "base_seconds": 900,
+      "listing_limit_c": 15994.75
+    },
+    {
+      "id": "gold_laser_head",
+      "name": "Gold Laser Head",
+      "inputs_m3": {
+        "Gold": 7,
+        "Copper": 5,
+        "Silicon": 3
+      },
+      "base_fee_c": 15,
+      "base_seconds": 900,
+      "listing_limit_c": 20060
+    },
+    {
+      "id": "uranium_laser_head",
       "name": "Uranium Laser Head",
       "inputs_m3": {
         "Uranium": 6,
         "Silicon": 5,
         "Copper": 4
       },
-      "time_display": "14m 43s",
-      "fee_c": 14.41,
-      "status": "screenshot verified; character adjusted",
-      "base_fee_c_estimate": 15,
-      "base_seconds_estimate": 901
+      "base_fee_c": 15,
+      "base_seconds": 900,
+      "listing_limit_c": 46134
     }
   ],
   "ships": [
@@ -373,16 +387,18 @@
       "seconds_per_distance": 150,
       "mining_mounts": 0,
       "drone_bays": 0,
-      "utility_slots": 1,
+      "utility_slots": 3,
       "cartridge_capacity": 5,
-      "status": "screenshot verified",
       "construction_hours": 24,
       "construction_materials_m3": {
         "Iron": 80,
         "Copper": 40,
         "Silicon": 20,
         "Carbon": 40
-      }
+      },
+      "travel_multiplier": 5,
+      "integrated_drive": null,
+      "remote_only": false
     },
     {
       "name": "Boomerang",
@@ -394,7 +410,6 @@
       "drone_bays": 0,
       "utility_slots": 0,
       "cartridge_capacity": 5,
-      "status": "screenshot verified",
       "construction_hours": 6,
       "construction_materials_m3": {
         "Iron": 100,
@@ -402,7 +417,10 @@
         "Silicon": 25,
         "Carbon": 100,
         "Titanium": 50
-      }
+      },
+      "travel_multiplier": 1,
+      "integrated_drive": 30,
+      "remote_only": true
     },
     {
       "name": "Delver I",
@@ -414,14 +432,16 @@
       "drone_bays": 1,
       "utility_slots": 1,
       "cartridge_capacity": 5,
-      "status": "screenshot verified",
       "construction_hours": 24,
       "construction_materials_m3": {
         "Iron": 80,
         "Copper": 40,
         "Silicon": 20,
         "Carbon": 40
-      }
+      },
+      "travel_multiplier": 1,
+      "integrated_drive": null,
+      "remote_only": false
     },
     {
       "name": "Narwhal I",
@@ -431,16 +451,18 @@
       "seconds_per_distance": 150,
       "mining_mounts": 1,
       "drone_bays": 0,
-      "utility_slots": 0,
+      "utility_slots": 1,
       "cartridge_capacity": 5,
-      "status": "screenshot verified",
       "construction_hours": 24,
       "construction_materials_m3": {
         "Iron": 80,
         "Copper": 40,
         "Silicon": 20,
         "Carbon": 40
-      }
+      },
+      "travel_multiplier": 5,
+      "integrated_drive": null,
+      "remote_only": false
     },
     {
       "name": "Porter",
@@ -452,7 +474,6 @@
       "drone_bays": 0,
       "utility_slots": 0,
       "cartridge_capacity": 5,
-      "status": "screenshot verified",
       "construction_hours": 6,
       "construction_materials_m3": {
         "Iron": 100,
@@ -460,7 +481,10 @@
         "Silicon": 25,
         "Carbon": 100,
         "Titanium": 50
-      }
+      },
+      "travel_multiplier": 1,
+      "integrated_drive": 30,
+      "remote_only": true
     },
     {
       "name": "Veinseeker I",
@@ -472,14 +496,16 @@
       "drone_bays": 1,
       "utility_slots": 0,
       "cartridge_capacity": 0,
-      "status": "screenshot verified",
       "construction_hours": 24,
       "construction_materials_m3": {
         "Iron": 80,
         "Copper": 40,
         "Silicon": 20,
         "Carbon": 40
-      }
+      },
+      "travel_multiplier": 1,
+      "integrated_drive": null,
+      "remote_only": false
     },
     {
       "name": "Wayfarer",
@@ -491,7 +517,6 @@
       "drone_bays": 0,
       "utility_slots": 0,
       "cartridge_capacity": 0,
-      "status": "screenshot verified",
       "construction_hours": 6,
       "construction_materials_m3": {
         "Iron": 100,
@@ -499,7 +524,10 @@
         "Silicon": 25,
         "Carbon": 100,
         "Titanium": 50
-      }
+      },
+      "travel_multiplier": 1,
+      "integrated_drive": 15,
+      "remote_only": false
     },
     {
       "name": "Atlas II",
@@ -509,9 +537,8 @@
       "seconds_per_distance": 150,
       "mining_mounts": 0,
       "drone_bays": 0,
-      "utility_slots": 1,
+      "utility_slots": 3,
       "cartridge_capacity": 10,
-      "status": "screenshot verified",
       "construction_hours": 72,
       "construction_materials_m3": {
         "Iron": 720,
@@ -520,7 +547,10 @@
         "Carbon": 270,
         "Titanium": 180,
         "Gold": 100
-      }
+      },
+      "travel_multiplier": 5,
+      "integrated_drive": null,
+      "remote_only": false
     },
     {
       "name": "Delver II",
@@ -532,7 +562,6 @@
       "drone_bays": 1,
       "utility_slots": 1,
       "cartridge_capacity": 10,
-      "status": "screenshot verified",
       "construction_hours": 72,
       "construction_materials_m3": {
         "Iron": 720,
@@ -541,7 +570,10 @@
         "Carbon": 270,
         "Titanium": 180,
         "Gold": 50
-      }
+      },
+      "travel_multiplier": 1,
+      "integrated_drive": null,
+      "remote_only": false
     },
     {
       "name": "Narwhal II",
@@ -551,9 +583,8 @@
       "seconds_per_distance": 150,
       "mining_mounts": 1,
       "drone_bays": 0,
-      "utility_slots": 0,
+      "utility_slots": 1,
       "cartridge_capacity": 10,
-      "status": "screenshot verified",
       "construction_hours": 72,
       "construction_materials_m3": {
         "Iron": 720,
@@ -562,7 +593,10 @@
         "Carbon": 270,
         "Titanium": 180,
         "Gold": 50
-      }
+      },
+      "travel_multiplier": 5,
+      "integrated_drive": null,
+      "remote_only": false
     },
     {
       "name": "Veinseeker II",
@@ -574,7 +608,6 @@
       "drone_bays": 1,
       "utility_slots": 0,
       "cartridge_capacity": 0,
-      "status": "screenshot verified",
       "construction_hours": 72,
       "construction_materials_m3": {
         "Iron": 720,
@@ -583,7 +616,10 @@
         "Carbon": 270,
         "Titanium": 180,
         "Gold": 50
-      }
+      },
+      "travel_multiplier": 1,
+      "integrated_drive": null,
+      "remote_only": false
     },
     {
       "name": "Atlas III",
@@ -593,9 +629,8 @@
       "seconds_per_distance": 150,
       "mining_mounts": 0,
       "drone_bays": 0,
-      "utility_slots": 1,
+      "utility_slots": 3,
       "cartridge_capacity": 15,
-      "status": "screenshot verified",
       "construction_hours": 216,
       "construction_materials_m3": {
         "Iron": 2160,
@@ -604,7 +639,10 @@
         "Carbon": 810,
         "Titanium": 540,
         "Gold": 300
-      }
+      },
+      "travel_multiplier": 5,
+      "integrated_drive": null,
+      "remote_only": false
     },
     {
       "name": "Delver III",
@@ -616,7 +654,6 @@
       "drone_bays": 1,
       "utility_slots": 1,
       "cartridge_capacity": 15,
-      "status": "screenshot verified",
       "construction_hours": 216,
       "construction_materials_m3": {
         "Iron": 2160,
@@ -625,7 +662,10 @@
         "Carbon": 810,
         "Titanium": 540,
         "Gold": 150
-      }
+      },
+      "travel_multiplier": 1,
+      "integrated_drive": null,
+      "remote_only": false
     },
     {
       "name": "Narwhal III",
@@ -635,9 +675,8 @@
       "seconds_per_distance": 150,
       "mining_mounts": 1,
       "drone_bays": 0,
-      "utility_slots": 0,
+      "utility_slots": 1,
       "cartridge_capacity": 15,
-      "status": "screenshot verified",
       "construction_hours": 216,
       "construction_materials_m3": {
         "Iron": 2160,
@@ -646,7 +685,10 @@
         "Carbon": 810,
         "Titanium": 540,
         "Gold": 150
-      }
+      },
+      "travel_multiplier": 5,
+      "integrated_drive": null,
+      "remote_only": false
     },
     {
       "name": "Veinseeker III",
@@ -658,7 +700,6 @@
       "drone_bays": 1,
       "utility_slots": 0,
       "cartridge_capacity": 0,
-      "status": "screenshot verified",
       "construction_hours": 216,
       "construction_materials_m3": {
         "Iron": 2160,
@@ -667,7 +708,10 @@
         "Carbon": 810,
         "Titanium": 540,
         "Gold": 150
-      }
+      },
+      "travel_multiplier": 1,
+      "integrated_drive": null,
+      "remote_only": false
     }
   ],
   "mining_lasers": [
@@ -677,16 +721,20 @@
       "tier": 1,
       "variant": "Standard",
       "components_each": 1,
-      "quantity_status": "verified",
       "frame": "Structural Frame",
       "board": "Circuit Board",
       "mining_rate_m3_s": 0.1,
       "fuel_cartridge_pct_per_min": 0,
-      "fabrication_fee_estimate_c": 57.62,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 60,
-      "base_seconds_estimate": 3600,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "iron_mining_laser",
+      "inputs_items": {
+        "Structural Frame": 1,
+        "Wiring Bundle": 1,
+        "Circuit Board": 1,
+        "Heat Sink": 1,
+        "Iron Laser Head": 1
+      },
+      "base_seconds": 3600,
+      "base_fee_c": 60
     },
     {
       "name": "T1 Fuel Iron Mining Laser",
@@ -694,16 +742,21 @@
       "tier": 1,
       "variant": "Fuel",
       "components_each": 1,
-      "quantity_status": "verified",
       "frame": "Structural Frame",
       "board": "Circuit Board",
-      "mining_rate_m3_s": 0.11499999999999999,
+      "mining_rate_m3_s": 0.115,
       "fuel_cartridge_pct_per_min": 2.5,
-      "fabrication_fee_estimate_c": 115.24,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 120,
-      "base_seconds_estimate": 7200,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "fuel_iron_mining_laser",
+      "inputs_items": {
+        "Structural Frame": 1,
+        "Wiring Bundle": 1,
+        "Circuit Board": 1,
+        "Heat Sink": 1,
+        "Iron Laser Head": 1,
+        "Pressure Vessel": 1
+      },
+      "base_seconds": 7200,
+      "base_fee_c": 120
     },
     {
       "name": "T1 Nuclear Iron Mining Laser",
@@ -711,16 +764,21 @@
       "tier": 1,
       "variant": "Nuclear",
       "components_each": 1,
-      "quantity_status": "verified",
       "frame": "Structural Frame",
       "board": "Circuit Board",
       "mining_rate_m3_s": 0.13,
       "fuel_cartridge_pct_per_min": 5,
-      "fabrication_fee_estimate_c": 172.86,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 180,
-      "base_seconds_estimate": 10800,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "nuclear_iron_mining_laser",
+      "inputs_items": {
+        "Structural Frame": 1,
+        "Wiring Bundle": 1,
+        "Circuit Board": 1,
+        "Heat Sink": 1,
+        "Iron Laser Head": 1,
+        "Pressure Vessel": 1
+      },
+      "base_seconds": 10800,
+      "base_fee_c": 180
     },
     {
       "name": "T2 Standard Iron Mining Laser",
@@ -728,16 +786,20 @@
       "tier": 2,
       "variant": "Standard",
       "components_each": 2,
-      "quantity_status": "verified",
       "frame": "Steel Frame",
       "board": "Silver-Plated Circuit Board",
       "mining_rate_m3_s": 0.15,
       "fuel_cartridge_pct_per_min": 0,
-      "fabrication_fee_estimate_c": 230.48,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 240,
-      "base_seconds_estimate": 14400,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "iron_mining_laser_t2",
+      "inputs_items": {
+        "Steel Frame": 2,
+        "Wiring Bundle": 2,
+        "Silver-plated Circuit Board": 2,
+        "Heat Sink": 2,
+        "Iron Laser Head": 2
+      },
+      "base_seconds": 14400,
+      "base_fee_c": 240
     },
     {
       "name": "T2 Fuel Iron Mining Laser",
@@ -745,16 +807,21 @@
       "tier": 2,
       "variant": "Fuel",
       "components_each": 2,
-      "quantity_status": "verified",
       "frame": "Steel Frame",
       "board": "Silver-Plated Circuit Board",
       "mining_rate_m3_s": 0.1725,
-      "fuel_cartridge_pct_per_min": 5.0,
-      "fabrication_fee_estimate_c": 460.96,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 480,
-      "base_seconds_estimate": 28800,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "fuel_cartridge_pct_per_min": 5,
+      "id": "fuel_iron_mining_laser_t2",
+      "inputs_items": {
+        "Steel Frame": 2,
+        "Wiring Bundle": 2,
+        "Silver-plated Circuit Board": 2,
+        "Heat Sink": 2,
+        "Iron Laser Head": 2,
+        "Pressure Vessel": 2
+      },
+      "base_seconds": 28800,
+      "base_fee_c": 480
     },
     {
       "name": "T2 Nuclear Iron Mining Laser",
@@ -762,16 +829,21 @@
       "tier": 2,
       "variant": "Nuclear",
       "components_each": 2,
-      "quantity_status": "verified",
       "frame": "Steel Frame",
       "board": "Silver-Plated Circuit Board",
       "mining_rate_m3_s": 0.195,
       "fuel_cartridge_pct_per_min": 10,
-      "fabrication_fee_estimate_c": 691.44,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 720,
-      "base_seconds_estimate": 43200,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "nuclear_iron_mining_laser_t2",
+      "inputs_items": {
+        "Steel Frame": 2,
+        "Wiring Bundle": 2,
+        "Silver-plated Circuit Board": 2,
+        "Heat Sink": 2,
+        "Iron Laser Head": 2,
+        "Pressure Vessel": 2
+      },
+      "base_seconds": 43200,
+      "base_fee_c": 720
     },
     {
       "name": "T3 Standard Iron Mining Laser",
@@ -779,16 +851,20 @@
       "tier": 3,
       "variant": "Standard",
       "components_each": 3,
-      "quantity_status": "verified",
       "frame": "Titanium Steel Frame",
       "board": "Gold-Plated Circuit Board",
       "mining_rate_m3_s": 0.2,
       "fuel_cartridge_pct_per_min": 0,
-      "fabrication_fee_estimate_c": 460.96,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 480,
-      "base_seconds_estimate": 28800,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "iron_mining_laser_t3",
+      "inputs_items": {
+        "Titanium Steel Frame": 3,
+        "Wiring Bundle": 3,
+        "Gold-plated Circuit Board": 3,
+        "Heat Sink": 3,
+        "Iron Laser Head": 3
+      },
+      "base_seconds": 28800,
+      "base_fee_c": 480
     },
     {
       "name": "T3 Fuel Iron Mining Laser",
@@ -796,16 +872,21 @@
       "tier": 3,
       "variant": "Fuel",
       "components_each": 3,
-      "quantity_status": "verified",
       "frame": "Titanium Steel Frame",
       "board": "Gold-Plated Circuit Board",
-      "mining_rate_m3_s": 0.22999999999999998,
+      "mining_rate_m3_s": 0.23,
       "fuel_cartridge_pct_per_min": 7.5,
-      "fabrication_fee_estimate_c": 921.92,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 960,
-      "base_seconds_estimate": 57600,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "fuel_iron_mining_laser_t3",
+      "inputs_items": {
+        "Titanium Steel Frame": 3,
+        "Wiring Bundle": 3,
+        "Gold-plated Circuit Board": 3,
+        "Heat Sink": 3,
+        "Iron Laser Head": 3,
+        "Pressure Vessel": 3
+      },
+      "base_seconds": 57600,
+      "base_fee_c": 960
     },
     {
       "name": "T3 Nuclear Iron Mining Laser",
@@ -813,16 +894,21 @@
       "tier": 3,
       "variant": "Nuclear",
       "components_each": 3,
-      "quantity_status": "verified",
       "frame": "Titanium Steel Frame",
       "board": "Gold-Plated Circuit Board",
       "mining_rate_m3_s": 0.26,
       "fuel_cartridge_pct_per_min": 15,
-      "fabrication_fee_estimate_c": 1382.88,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 1440,
-      "base_seconds_estimate": 86400,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "nuclear_iron_mining_laser_t3",
+      "inputs_items": {
+        "Titanium Steel Frame": 3,
+        "Wiring Bundle": 3,
+        "Gold-plated Circuit Board": 3,
+        "Heat Sink": 3,
+        "Iron Laser Head": 3,
+        "Pressure Vessel": 3
+      },
+      "base_seconds": 86400,
+      "base_fee_c": 1440
     },
     {
       "name": "T1 Standard Copper Mining Laser",
@@ -830,16 +916,20 @@
       "tier": 1,
       "variant": "Standard",
       "components_each": 2,
-      "quantity_status": "verified",
       "frame": "Structural Frame",
       "board": "Circuit Board",
       "mining_rate_m3_s": 0.1,
       "fuel_cartridge_pct_per_min": 0,
-      "fabrication_fee_estimate_c": 72.03,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 75,
-      "base_seconds_estimate": 4500,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "copper_mining_laser",
+      "inputs_items": {
+        "Structural Frame": 2,
+        "Wiring Bundle": 2,
+        "Circuit Board": 2,
+        "Heat Sink": 2,
+        "Copper Laser Head": 2
+      },
+      "base_seconds": 4500,
+      "base_fee_c": 75
     },
     {
       "name": "T1 Fuel Copper Mining Laser",
@@ -847,16 +937,21 @@
       "tier": 1,
       "variant": "Fuel",
       "components_each": 2,
-      "quantity_status": "verified",
       "frame": "Structural Frame",
       "board": "Circuit Board",
-      "mining_rate_m3_s": 0.11499999999999999,
+      "mining_rate_m3_s": 0.115,
       "fuel_cartridge_pct_per_min": 2.5,
-      "fabrication_fee_estimate_c": 144.06,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 150,
-      "base_seconds_estimate": 9000,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "fuel_copper_mining_laser",
+      "inputs_items": {
+        "Structural Frame": 2,
+        "Wiring Bundle": 2,
+        "Circuit Board": 2,
+        "Heat Sink": 2,
+        "Copper Laser Head": 2,
+        "Pressure Vessel": 2
+      },
+      "base_seconds": 9000,
+      "base_fee_c": 150
     },
     {
       "name": "T1 Nuclear Copper Mining Laser",
@@ -864,16 +959,21 @@
       "tier": 1,
       "variant": "Nuclear",
       "components_each": 2,
-      "quantity_status": "verified",
       "frame": "Structural Frame",
       "board": "Circuit Board",
       "mining_rate_m3_s": 0.13,
       "fuel_cartridge_pct_per_min": 5,
-      "fabrication_fee_estimate_c": 216.09,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 225,
-      "base_seconds_estimate": 13500,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "nuclear_copper_mining_laser",
+      "inputs_items": {
+        "Structural Frame": 2,
+        "Wiring Bundle": 2,
+        "Circuit Board": 2,
+        "Heat Sink": 2,
+        "Copper Laser Head": 2,
+        "Pressure Vessel": 2
+      },
+      "base_seconds": 13500,
+      "base_fee_c": 225
     },
     {
       "name": "T2 Standard Copper Mining Laser",
@@ -881,16 +981,20 @@
       "tier": 2,
       "variant": "Standard",
       "components_each": 3,
-      "quantity_status": "verified",
       "frame": "Steel Frame",
       "board": "Silver-Plated Circuit Board",
       "mining_rate_m3_s": 0.15,
       "fuel_cartridge_pct_per_min": 0,
-      "fabrication_fee_estimate_c": 288.12,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 300,
-      "base_seconds_estimate": 18000,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "copper_mining_laser_t2",
+      "inputs_items": {
+        "Steel Frame": 3,
+        "Wiring Bundle": 3,
+        "Silver-plated Circuit Board": 3,
+        "Heat Sink": 3,
+        "Copper Laser Head": 3
+      },
+      "base_seconds": 18000,
+      "base_fee_c": 300
     },
     {
       "name": "T2 Fuel Copper Mining Laser",
@@ -898,16 +1002,21 @@
       "tier": 2,
       "variant": "Fuel",
       "components_each": 3,
-      "quantity_status": "verified",
       "frame": "Steel Frame",
       "board": "Silver-Plated Circuit Board",
       "mining_rate_m3_s": 0.1725,
-      "fuel_cartridge_pct_per_min": 5.0,
-      "fabrication_fee_estimate_c": 576.24,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 600,
-      "base_seconds_estimate": 36000,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "fuel_cartridge_pct_per_min": 5,
+      "id": "fuel_copper_mining_laser_t2",
+      "inputs_items": {
+        "Steel Frame": 3,
+        "Wiring Bundle": 3,
+        "Silver-plated Circuit Board": 3,
+        "Heat Sink": 3,
+        "Copper Laser Head": 3,
+        "Pressure Vessel": 3
+      },
+      "base_seconds": 36000,
+      "base_fee_c": 600
     },
     {
       "name": "T2 Nuclear Copper Mining Laser",
@@ -915,16 +1024,21 @@
       "tier": 2,
       "variant": "Nuclear",
       "components_each": 3,
-      "quantity_status": "verified",
       "frame": "Steel Frame",
       "board": "Silver-Plated Circuit Board",
       "mining_rate_m3_s": 0.195,
       "fuel_cartridge_pct_per_min": 10,
-      "fabrication_fee_estimate_c": 864.36,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 900,
-      "base_seconds_estimate": 54000,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "nuclear_copper_mining_laser_t2",
+      "inputs_items": {
+        "Steel Frame": 3,
+        "Wiring Bundle": 3,
+        "Silver-plated Circuit Board": 3,
+        "Heat Sink": 3,
+        "Copper Laser Head": 3,
+        "Pressure Vessel": 3
+      },
+      "base_seconds": 54000,
+      "base_fee_c": 900
     },
     {
       "name": "T3 Standard Copper Mining Laser",
@@ -932,16 +1046,20 @@
       "tier": 3,
       "variant": "Standard",
       "components_each": 4,
-      "quantity_status": "verified",
       "frame": "Titanium Steel Frame",
       "board": "Gold-Plated Circuit Board",
       "mining_rate_m3_s": 0.2,
       "fuel_cartridge_pct_per_min": 0,
-      "fabrication_fee_estimate_c": 576.24,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 600,
-      "base_seconds_estimate": 36000,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "copper_mining_laser_t3",
+      "inputs_items": {
+        "Titanium Steel Frame": 4,
+        "Wiring Bundle": 4,
+        "Gold-plated Circuit Board": 4,
+        "Heat Sink": 4,
+        "Copper Laser Head": 4
+      },
+      "base_seconds": 36000,
+      "base_fee_c": 600
     },
     {
       "name": "T3 Fuel Copper Mining Laser",
@@ -949,16 +1067,21 @@
       "tier": 3,
       "variant": "Fuel",
       "components_each": 4,
-      "quantity_status": "verified",
       "frame": "Titanium Steel Frame",
       "board": "Gold-Plated Circuit Board",
-      "mining_rate_m3_s": 0.22999999999999998,
+      "mining_rate_m3_s": 0.23,
       "fuel_cartridge_pct_per_min": 7.5,
-      "fabrication_fee_estimate_c": 1152.48,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 1200,
-      "base_seconds_estimate": 72000,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "fuel_copper_mining_laser_t3",
+      "inputs_items": {
+        "Titanium Steel Frame": 4,
+        "Wiring Bundle": 4,
+        "Gold-plated Circuit Board": 4,
+        "Heat Sink": 4,
+        "Copper Laser Head": 4,
+        "Pressure Vessel": 4
+      },
+      "base_seconds": 72000,
+      "base_fee_c": 1200
     },
     {
       "name": "T3 Nuclear Copper Mining Laser",
@@ -966,16 +1089,21 @@
       "tier": 3,
       "variant": "Nuclear",
       "components_each": 4,
-      "quantity_status": "verified",
       "frame": "Titanium Steel Frame",
       "board": "Gold-Plated Circuit Board",
       "mining_rate_m3_s": 0.26,
       "fuel_cartridge_pct_per_min": 15,
-      "fabrication_fee_estimate_c": 1728.72,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 1800,
-      "base_seconds_estimate": 108000,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "nuclear_copper_mining_laser_t3",
+      "inputs_items": {
+        "Titanium Steel Frame": 4,
+        "Wiring Bundle": 4,
+        "Gold-plated Circuit Board": 4,
+        "Heat Sink": 4,
+        "Copper Laser Head": 4,
+        "Pressure Vessel": 4
+      },
+      "base_seconds": 108000,
+      "base_fee_c": 1800
     },
     {
       "name": "T1 Standard Silicon Mining Laser",
@@ -983,16 +1111,20 @@
       "tier": 1,
       "variant": "Standard",
       "components_each": 2,
-      "quantity_status": "verified",
       "frame": "Structural Frame",
       "board": "Circuit Board",
       "mining_rate_m3_s": 0.1,
       "fuel_cartridge_pct_per_min": 0,
-      "fabrication_fee_estimate_c": 86.44,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 90,
-      "base_seconds_estimate": 5400,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "silicon_mining_laser",
+      "inputs_items": {
+        "Structural Frame": 2,
+        "Wiring Bundle": 2,
+        "Circuit Board": 2,
+        "Heat Sink": 2,
+        "Silicon Laser Head": 2
+      },
+      "base_seconds": 5400,
+      "base_fee_c": 90
     },
     {
       "name": "T1 Fuel Silicon Mining Laser",
@@ -1000,16 +1132,21 @@
       "tier": 1,
       "variant": "Fuel",
       "components_each": 2,
-      "quantity_status": "verified",
       "frame": "Structural Frame",
       "board": "Circuit Board",
-      "mining_rate_m3_s": 0.11499999999999999,
+      "mining_rate_m3_s": 0.115,
       "fuel_cartridge_pct_per_min": 2.5,
-      "fabrication_fee_estimate_c": 172.88,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 180,
-      "base_seconds_estimate": 10800,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "fuel_silicon_mining_laser",
+      "inputs_items": {
+        "Structural Frame": 2,
+        "Wiring Bundle": 2,
+        "Circuit Board": 2,
+        "Heat Sink": 2,
+        "Silicon Laser Head": 2,
+        "Pressure Vessel": 2
+      },
+      "base_seconds": 10800,
+      "base_fee_c": 180
     },
     {
       "name": "T1 Nuclear Silicon Mining Laser",
@@ -1017,118 +1154,151 @@
       "tier": 1,
       "variant": "Nuclear",
       "components_each": 2,
-      "quantity_status": "verified",
       "frame": "Structural Frame",
       "board": "Circuit Board",
       "mining_rate_m3_s": 0.13,
       "fuel_cartridge_pct_per_min": 5,
-      "fabrication_fee_estimate_c": 259.32,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 270,
-      "base_seconds_estimate": 16200,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "nuclear_silicon_mining_laser",
+      "inputs_items": {
+        "Structural Frame": 2,
+        "Wiring Bundle": 2,
+        "Circuit Board": 2,
+        "Heat Sink": 2,
+        "Silicon Laser Head": 2,
+        "Pressure Vessel": 2
+      },
+      "base_seconds": 16200,
+      "base_fee_c": 270
     },
     {
       "name": "T2 Standard Silicon Mining Laser",
       "ore": "Silicon",
       "tier": 2,
       "variant": "Standard",
-      "components_each": null,
-      "quantity_status": "unknown - do not infer",
+      "components_each": 3,
       "frame": "Steel Frame",
       "board": "Silver-Plated Circuit Board",
       "mining_rate_m3_s": 0.15,
       "fuel_cartridge_pct_per_min": 0,
-      "fabrication_fee_estimate_c": 345.76,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 360,
-      "base_seconds_estimate": 21600,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "silicon_mining_laser_t2",
+      "inputs_items": {
+        "Steel Frame": 3,
+        "Wiring Bundle": 3,
+        "Silver-plated Circuit Board": 3,
+        "Heat Sink": 3,
+        "Silicon Laser Head": 3
+      },
+      "base_seconds": 21600,
+      "base_fee_c": 360
     },
     {
       "name": "T2 Fuel Silicon Mining Laser",
       "ore": "Silicon",
       "tier": 2,
       "variant": "Fuel",
-      "components_each": null,
-      "quantity_status": "unknown - do not infer",
+      "components_each": 3,
       "frame": "Steel Frame",
       "board": "Silver-Plated Circuit Board",
       "mining_rate_m3_s": 0.1725,
-      "fuel_cartridge_pct_per_min": 5.0,
-      "fabrication_fee_estimate_c": 691.52,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 720,
-      "base_seconds_estimate": 43200,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "fuel_cartridge_pct_per_min": 5,
+      "id": "fuel_silicon_mining_laser_t2",
+      "inputs_items": {
+        "Steel Frame": 3,
+        "Wiring Bundle": 3,
+        "Silver-plated Circuit Board": 3,
+        "Heat Sink": 3,
+        "Silicon Laser Head": 3,
+        "Pressure Vessel": 3
+      },
+      "base_seconds": 43200,
+      "base_fee_c": 720
     },
     {
       "name": "T2 Nuclear Silicon Mining Laser",
       "ore": "Silicon",
       "tier": 2,
       "variant": "Nuclear",
-      "components_each": null,
-      "quantity_status": "unknown - do not infer",
+      "components_each": 3,
       "frame": "Steel Frame",
       "board": "Silver-Plated Circuit Board",
       "mining_rate_m3_s": 0.195,
       "fuel_cartridge_pct_per_min": 10,
-      "fabrication_fee_estimate_c": 1037.28,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 1080,
-      "base_seconds_estimate": 64800,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "nuclear_silicon_mining_laser_t2",
+      "inputs_items": {
+        "Steel Frame": 3,
+        "Wiring Bundle": 3,
+        "Silver-plated Circuit Board": 3,
+        "Heat Sink": 3,
+        "Silicon Laser Head": 3,
+        "Pressure Vessel": 3
+      },
+      "base_seconds": 64800,
+      "base_fee_c": 1080
     },
     {
       "name": "T3 Standard Silicon Mining Laser",
       "ore": "Silicon",
       "tier": 3,
       "variant": "Standard",
-      "components_each": null,
-      "quantity_status": "unknown - do not infer",
+      "components_each": 5,
       "frame": "Titanium Steel Frame",
       "board": "Gold-Plated Circuit Board",
       "mining_rate_m3_s": 0.2,
       "fuel_cartridge_pct_per_min": 0,
-      "fabrication_fee_estimate_c": 691.52,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 720,
-      "base_seconds_estimate": 43200,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "silicon_mining_laser_t3",
+      "inputs_items": {
+        "Titanium Steel Frame": 5,
+        "Wiring Bundle": 5,
+        "Gold-plated Circuit Board": 5,
+        "Heat Sink": 5,
+        "Silicon Laser Head": 5
+      },
+      "base_seconds": 43200,
+      "base_fee_c": 720
     },
     {
       "name": "T3 Fuel Silicon Mining Laser",
       "ore": "Silicon",
       "tier": 3,
       "variant": "Fuel",
-      "components_each": null,
-      "quantity_status": "unknown - do not infer",
+      "components_each": 5,
       "frame": "Titanium Steel Frame",
       "board": "Gold-Plated Circuit Board",
-      "mining_rate_m3_s": 0.22999999999999998,
+      "mining_rate_m3_s": 0.23,
       "fuel_cartridge_pct_per_min": 7.5,
-      "fabrication_fee_estimate_c": 1383.04,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 1440,
-      "base_seconds_estimate": 86400,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "fuel_silicon_mining_laser_t3",
+      "inputs_items": {
+        "Titanium Steel Frame": 5,
+        "Wiring Bundle": 5,
+        "Gold-plated Circuit Board": 5,
+        "Heat Sink": 5,
+        "Silicon Laser Head": 5,
+        "Pressure Vessel": 5
+      },
+      "base_seconds": 86400,
+      "base_fee_c": 1440
     },
     {
       "name": "T3 Nuclear Silicon Mining Laser",
       "ore": "Silicon",
       "tier": 3,
       "variant": "Nuclear",
-      "components_each": null,
-      "quantity_status": "unknown - do not infer",
+      "components_each": 5,
       "frame": "Titanium Steel Frame",
       "board": "Gold-Plated Circuit Board",
       "mining_rate_m3_s": 0.26,
       "fuel_cartridge_pct_per_min": 15,
-      "fabrication_fee_estimate_c": 2074.56,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 2160,
-      "base_seconds_estimate": 129600,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "nuclear_silicon_mining_laser_t3",
+      "inputs_items": {
+        "Titanium Steel Frame": 5,
+        "Wiring Bundle": 5,
+        "Gold-plated Circuit Board": 5,
+        "Heat Sink": 5,
+        "Silicon Laser Head": 5,
+        "Pressure Vessel": 5
+      },
+      "base_seconds": 129600,
+      "base_fee_c": 2160
     },
     {
       "name": "T1 Standard Carbon Mining Laser",
@@ -1136,16 +1306,20 @@
       "tier": 1,
       "variant": "Standard",
       "components_each": 2,
-      "quantity_status": "verified",
       "frame": "Structural Frame",
       "board": "Circuit Board",
       "mining_rate_m3_s": 0.1,
       "fuel_cartridge_pct_per_min": 0,
-      "fabrication_fee_estimate_c": 86.44,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 90,
-      "base_seconds_estimate": 5400,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "carbon_mining_laser",
+      "inputs_items": {
+        "Structural Frame": 2,
+        "Wiring Bundle": 2,
+        "Circuit Board": 2,
+        "Heat Sink": 2,
+        "Carbon Laser Head": 2
+      },
+      "base_seconds": 5400,
+      "base_fee_c": 90
     },
     {
       "name": "T1 Fuel Carbon Mining Laser",
@@ -1153,16 +1327,21 @@
       "tier": 1,
       "variant": "Fuel",
       "components_each": 2,
-      "quantity_status": "verified",
       "frame": "Structural Frame",
       "board": "Circuit Board",
-      "mining_rate_m3_s": 0.11499999999999999,
+      "mining_rate_m3_s": 0.115,
       "fuel_cartridge_pct_per_min": 2.5,
-      "fabrication_fee_estimate_c": 172.88,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 180,
-      "base_seconds_estimate": 10800,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "fuel_carbon_mining_laser",
+      "inputs_items": {
+        "Structural Frame": 2,
+        "Wiring Bundle": 2,
+        "Circuit Board": 2,
+        "Heat Sink": 2,
+        "Carbon Laser Head": 2,
+        "Pressure Vessel": 2
+      },
+      "base_seconds": 10800,
+      "base_fee_c": 180
     },
     {
       "name": "T1 Nuclear Carbon Mining Laser",
@@ -1170,118 +1349,151 @@
       "tier": 1,
       "variant": "Nuclear",
       "components_each": 2,
-      "quantity_status": "verified",
       "frame": "Structural Frame",
       "board": "Circuit Board",
       "mining_rate_m3_s": 0.13,
       "fuel_cartridge_pct_per_min": 5,
-      "fabrication_fee_estimate_c": 259.32,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 270,
-      "base_seconds_estimate": 16200,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "nuclear_carbon_mining_laser",
+      "inputs_items": {
+        "Structural Frame": 2,
+        "Wiring Bundle": 2,
+        "Circuit Board": 2,
+        "Heat Sink": 2,
+        "Carbon Laser Head": 2,
+        "Pressure Vessel": 2
+      },
+      "base_seconds": 16200,
+      "base_fee_c": 270
     },
     {
       "name": "T2 Standard Carbon Mining Laser",
       "ore": "Carbon",
       "tier": 2,
       "variant": "Standard",
-      "components_each": null,
-      "quantity_status": "unknown - do not infer",
+      "components_each": 3,
       "frame": "Steel Frame",
       "board": "Silver-Plated Circuit Board",
       "mining_rate_m3_s": 0.15,
       "fuel_cartridge_pct_per_min": 0,
-      "fabrication_fee_estimate_c": 345.76,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 360,
-      "base_seconds_estimate": 21600,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "carbon_mining_laser_t2",
+      "inputs_items": {
+        "Steel Frame": 3,
+        "Wiring Bundle": 3,
+        "Silver-plated Circuit Board": 3,
+        "Heat Sink": 3,
+        "Carbon Laser Head": 3
+      },
+      "base_seconds": 21600,
+      "base_fee_c": 360
     },
     {
       "name": "T2 Fuel Carbon Mining Laser",
       "ore": "Carbon",
       "tier": 2,
       "variant": "Fuel",
-      "components_each": null,
-      "quantity_status": "unknown - do not infer",
+      "components_each": 3,
       "frame": "Steel Frame",
       "board": "Silver-Plated Circuit Board",
       "mining_rate_m3_s": 0.1725,
-      "fuel_cartridge_pct_per_min": 5.0,
-      "fabrication_fee_estimate_c": 691.52,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 720,
-      "base_seconds_estimate": 43200,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "fuel_cartridge_pct_per_min": 5,
+      "id": "fuel_carbon_mining_laser_t2",
+      "inputs_items": {
+        "Steel Frame": 3,
+        "Wiring Bundle": 3,
+        "Silver-plated Circuit Board": 3,
+        "Heat Sink": 3,
+        "Carbon Laser Head": 3,
+        "Pressure Vessel": 3
+      },
+      "base_seconds": 43200,
+      "base_fee_c": 720
     },
     {
       "name": "T2 Nuclear Carbon Mining Laser",
       "ore": "Carbon",
       "tier": 2,
       "variant": "Nuclear",
-      "components_each": null,
-      "quantity_status": "unknown - do not infer",
+      "components_each": 3,
       "frame": "Steel Frame",
       "board": "Silver-Plated Circuit Board",
       "mining_rate_m3_s": 0.195,
       "fuel_cartridge_pct_per_min": 10,
-      "fabrication_fee_estimate_c": 1037.28,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 1080,
-      "base_seconds_estimate": 64800,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "nuclear_carbon_mining_laser_t2",
+      "inputs_items": {
+        "Steel Frame": 3,
+        "Wiring Bundle": 3,
+        "Silver-plated Circuit Board": 3,
+        "Heat Sink": 3,
+        "Carbon Laser Head": 3,
+        "Pressure Vessel": 3
+      },
+      "base_seconds": 64800,
+      "base_fee_c": 1080
     },
     {
       "name": "T3 Standard Carbon Mining Laser",
       "ore": "Carbon",
       "tier": 3,
       "variant": "Standard",
-      "components_each": null,
-      "quantity_status": "unknown - do not infer",
+      "components_each": 5,
       "frame": "Titanium Steel Frame",
       "board": "Gold-Plated Circuit Board",
       "mining_rate_m3_s": 0.2,
       "fuel_cartridge_pct_per_min": 0,
-      "fabrication_fee_estimate_c": 691.52,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 720,
-      "base_seconds_estimate": 43200,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "carbon_mining_laser_t3",
+      "inputs_items": {
+        "Titanium Steel Frame": 5,
+        "Wiring Bundle": 5,
+        "Gold-plated Circuit Board": 5,
+        "Heat Sink": 5,
+        "Carbon Laser Head": 5
+      },
+      "base_seconds": 43200,
+      "base_fee_c": 720
     },
     {
       "name": "T3 Fuel Carbon Mining Laser",
       "ore": "Carbon",
       "tier": 3,
       "variant": "Fuel",
-      "components_each": null,
-      "quantity_status": "unknown - do not infer",
+      "components_each": 5,
       "frame": "Titanium Steel Frame",
       "board": "Gold-Plated Circuit Board",
-      "mining_rate_m3_s": 0.22999999999999998,
+      "mining_rate_m3_s": 0.23,
       "fuel_cartridge_pct_per_min": 7.5,
-      "fabrication_fee_estimate_c": 1383.04,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 1440,
-      "base_seconds_estimate": 86400,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "fuel_carbon_mining_laser_t3",
+      "inputs_items": {
+        "Titanium Steel Frame": 5,
+        "Wiring Bundle": 5,
+        "Gold-plated Circuit Board": 5,
+        "Heat Sink": 5,
+        "Carbon Laser Head": 5,
+        "Pressure Vessel": 5
+      },
+      "base_seconds": 86400,
+      "base_fee_c": 1440
     },
     {
       "name": "T3 Nuclear Carbon Mining Laser",
       "ore": "Carbon",
       "tier": 3,
       "variant": "Nuclear",
-      "components_each": null,
-      "quantity_status": "unknown - do not infer",
+      "components_each": 5,
       "frame": "Titanium Steel Frame",
       "board": "Gold-Plated Circuit Board",
       "mining_rate_m3_s": 0.26,
       "fuel_cartridge_pct_per_min": 15,
-      "fabrication_fee_estimate_c": 2074.56,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 2160,
-      "base_seconds_estimate": 129600,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "nuclear_carbon_mining_laser_t3",
+      "inputs_items": {
+        "Titanium Steel Frame": 5,
+        "Wiring Bundle": 5,
+        "Gold-plated Circuit Board": 5,
+        "Heat Sink": 5,
+        "Carbon Laser Head": 5,
+        "Pressure Vessel": 5
+      },
+      "base_seconds": 129600,
+      "base_fee_c": 2160
     },
     {
       "name": "T1 Standard Titanium Mining Laser",
@@ -1289,16 +1501,20 @@
       "tier": 1,
       "variant": "Standard",
       "components_each": 2,
-      "quantity_status": "verified",
       "frame": "Structural Frame",
       "board": "Circuit Board",
       "mining_rate_m3_s": 0.1,
       "fuel_cartridge_pct_per_min": 0,
-      "fabrication_fee_estimate_c": 115.25,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 120,
-      "base_seconds_estimate": 7200,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "titanium_mining_laser",
+      "inputs_items": {
+        "Structural Frame": 2,
+        "Wiring Bundle": 2,
+        "Circuit Board": 2,
+        "Heat Sink": 2,
+        "Titanium Laser Head": 2
+      },
+      "base_seconds": 7200,
+      "base_fee_c": 120
     },
     {
       "name": "T1 Fuel Titanium Mining Laser",
@@ -1306,16 +1522,21 @@
       "tier": 1,
       "variant": "Fuel",
       "components_each": 2,
-      "quantity_status": "verified",
       "frame": "Structural Frame",
       "board": "Circuit Board",
-      "mining_rate_m3_s": 0.11499999999999999,
+      "mining_rate_m3_s": 0.115,
       "fuel_cartridge_pct_per_min": 2.5,
-      "fabrication_fee_estimate_c": 230.5,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 240,
-      "base_seconds_estimate": 14400,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "fuel_titanium_mining_laser",
+      "inputs_items": {
+        "Structural Frame": 2,
+        "Wiring Bundle": 2,
+        "Circuit Board": 2,
+        "Heat Sink": 2,
+        "Titanium Laser Head": 2,
+        "Pressure Vessel": 2
+      },
+      "base_seconds": 14400,
+      "base_fee_c": 240
     },
     {
       "name": "T1 Nuclear Titanium Mining Laser",
@@ -1323,118 +1544,151 @@
       "tier": 1,
       "variant": "Nuclear",
       "components_each": 2,
-      "quantity_status": "verified",
       "frame": "Structural Frame",
       "board": "Circuit Board",
       "mining_rate_m3_s": 0.13,
       "fuel_cartridge_pct_per_min": 5,
-      "fabrication_fee_estimate_c": 345.75,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 360,
-      "base_seconds_estimate": 21600,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "nuclear_titanium_mining_laser",
+      "inputs_items": {
+        "Structural Frame": 2,
+        "Wiring Bundle": 2,
+        "Circuit Board": 2,
+        "Heat Sink": 2,
+        "Titanium Laser Head": 2,
+        "Pressure Vessel": 2
+      },
+      "base_seconds": 21600,
+      "base_fee_c": 360
     },
     {
       "name": "T2 Standard Titanium Mining Laser",
       "ore": "Titanium",
       "tier": 2,
       "variant": "Standard",
-      "components_each": null,
-      "quantity_status": "unknown - do not infer",
+      "components_each": 4,
       "frame": "Steel Frame",
       "board": "Silver-Plated Circuit Board",
       "mining_rate_m3_s": 0.15,
       "fuel_cartridge_pct_per_min": 0,
-      "fabrication_fee_estimate_c": 461.0,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 480,
-      "base_seconds_estimate": 28800,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "titanium_mining_laser_t2",
+      "inputs_items": {
+        "Steel Frame": 4,
+        "Wiring Bundle": 4,
+        "Silver-plated Circuit Board": 4,
+        "Heat Sink": 4,
+        "Titanium Laser Head": 4
+      },
+      "base_seconds": 28800,
+      "base_fee_c": 480
     },
     {
       "name": "T2 Fuel Titanium Mining Laser",
       "ore": "Titanium",
       "tier": 2,
       "variant": "Fuel",
-      "components_each": null,
-      "quantity_status": "unknown - do not infer",
+      "components_each": 4,
       "frame": "Steel Frame",
       "board": "Silver-Plated Circuit Board",
       "mining_rate_m3_s": 0.1725,
-      "fuel_cartridge_pct_per_min": 5.0,
-      "fabrication_fee_estimate_c": 922.0,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 960,
-      "base_seconds_estimate": 57600,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "fuel_cartridge_pct_per_min": 5,
+      "id": "fuel_titanium_mining_laser_t2",
+      "inputs_items": {
+        "Steel Frame": 4,
+        "Wiring Bundle": 4,
+        "Silver-plated Circuit Board": 4,
+        "Heat Sink": 4,
+        "Titanium Laser Head": 4,
+        "Pressure Vessel": 4
+      },
+      "base_seconds": 57600,
+      "base_fee_c": 960
     },
     {
       "name": "T2 Nuclear Titanium Mining Laser",
       "ore": "Titanium",
       "tier": 2,
       "variant": "Nuclear",
-      "components_each": null,
-      "quantity_status": "unknown - do not infer",
+      "components_each": 4,
       "frame": "Steel Frame",
       "board": "Silver-Plated Circuit Board",
       "mining_rate_m3_s": 0.195,
       "fuel_cartridge_pct_per_min": 10,
-      "fabrication_fee_estimate_c": 1383.0,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 1440,
-      "base_seconds_estimate": 86400,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "nuclear_titanium_mining_laser_t2",
+      "inputs_items": {
+        "Steel Frame": 4,
+        "Wiring Bundle": 4,
+        "Silver-plated Circuit Board": 4,
+        "Heat Sink": 4,
+        "Titanium Laser Head": 4,
+        "Pressure Vessel": 4
+      },
+      "base_seconds": 86400,
+      "base_fee_c": 1440
     },
     {
       "name": "T3 Standard Titanium Mining Laser",
       "ore": "Titanium",
       "tier": 3,
       "variant": "Standard",
-      "components_each": null,
-      "quantity_status": "unknown - do not infer",
+      "components_each": 6,
       "frame": "Titanium Steel Frame",
       "board": "Gold-Plated Circuit Board",
       "mining_rate_m3_s": 0.2,
       "fuel_cartridge_pct_per_min": 0,
-      "fabrication_fee_estimate_c": 922.0,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 960,
-      "base_seconds_estimate": 57600,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "titanium_mining_laser_t3",
+      "inputs_items": {
+        "Titanium Steel Frame": 6,
+        "Wiring Bundle": 6,
+        "Gold-plated Circuit Board": 6,
+        "Heat Sink": 6,
+        "Titanium Laser Head": 6
+      },
+      "base_seconds": 57600,
+      "base_fee_c": 960
     },
     {
       "name": "T3 Fuel Titanium Mining Laser",
       "ore": "Titanium",
       "tier": 3,
       "variant": "Fuel",
-      "components_each": null,
-      "quantity_status": "unknown - do not infer",
+      "components_each": 6,
       "frame": "Titanium Steel Frame",
       "board": "Gold-Plated Circuit Board",
-      "mining_rate_m3_s": 0.22999999999999998,
+      "mining_rate_m3_s": 0.23,
       "fuel_cartridge_pct_per_min": 7.5,
-      "fabrication_fee_estimate_c": 1844.0,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 1920,
-      "base_seconds_estimate": 115200,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "fuel_titanium_mining_laser_t3",
+      "inputs_items": {
+        "Titanium Steel Frame": 6,
+        "Wiring Bundle": 6,
+        "Gold-plated Circuit Board": 6,
+        "Heat Sink": 6,
+        "Titanium Laser Head": 6,
+        "Pressure Vessel": 6
+      },
+      "base_seconds": 115200,
+      "base_fee_c": 1920
     },
     {
       "name": "T3 Nuclear Titanium Mining Laser",
       "ore": "Titanium",
       "tier": 3,
       "variant": "Nuclear",
-      "components_each": null,
-      "quantity_status": "unknown - do not infer",
+      "components_each": 6,
       "frame": "Titanium Steel Frame",
       "board": "Gold-Plated Circuit Board",
       "mining_rate_m3_s": 0.26,
       "fuel_cartridge_pct_per_min": 15,
-      "fabrication_fee_estimate_c": 2766.0,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 2880,
-      "base_seconds_estimate": 172800,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "nuclear_titanium_mining_laser_t3",
+      "inputs_items": {
+        "Titanium Steel Frame": 6,
+        "Wiring Bundle": 6,
+        "Gold-plated Circuit Board": 6,
+        "Heat Sink": 6,
+        "Titanium Laser Head": 6,
+        "Pressure Vessel": 6
+      },
+      "base_seconds": 172800,
+      "base_fee_c": 2880
     },
     {
       "name": "T1 Standard Silver Mining Laser",
@@ -1442,16 +1696,20 @@
       "tier": 1,
       "variant": "Standard",
       "components_each": 3,
-      "quantity_status": "verified",
       "frame": "Structural Frame",
       "board": "Circuit Board",
       "mining_rate_m3_s": 0.1,
       "fuel_cartridge_pct_per_min": 0,
-      "fabrication_fee_estimate_c": 144.06,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 150,
-      "base_seconds_estimate": 9000,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "silver_mining_laser",
+      "inputs_items": {
+        "Structural Frame": 3,
+        "Wiring Bundle": 3,
+        "Circuit Board": 3,
+        "Heat Sink": 3,
+        "Silver Laser Head": 3
+      },
+      "base_seconds": 9000,
+      "base_fee_c": 150
     },
     {
       "name": "T1 Fuel Silver Mining Laser",
@@ -1459,16 +1717,21 @@
       "tier": 1,
       "variant": "Fuel",
       "components_each": 3,
-      "quantity_status": "verified",
       "frame": "Structural Frame",
       "board": "Circuit Board",
-      "mining_rate_m3_s": 0.11499999999999999,
+      "mining_rate_m3_s": 0.115,
       "fuel_cartridge_pct_per_min": 2.5,
-      "fabrication_fee_estimate_c": 288.12,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 300,
-      "base_seconds_estimate": 18000,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "fuel_silver_mining_laser",
+      "inputs_items": {
+        "Structural Frame": 3,
+        "Wiring Bundle": 3,
+        "Circuit Board": 3,
+        "Heat Sink": 3,
+        "Silver Laser Head": 3,
+        "Pressure Vessel": 3
+      },
+      "base_seconds": 18000,
+      "base_fee_c": 300
     },
     {
       "name": "T1 Nuclear Silver Mining Laser",
@@ -1476,16 +1739,21 @@
       "tier": 1,
       "variant": "Nuclear",
       "components_each": 3,
-      "quantity_status": "verified",
       "frame": "Structural Frame",
       "board": "Circuit Board",
       "mining_rate_m3_s": 0.13,
       "fuel_cartridge_pct_per_min": 5,
-      "fabrication_fee_estimate_c": 432.18,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 450,
-      "base_seconds_estimate": 27000,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "nuclear_silver_mining_laser",
+      "inputs_items": {
+        "Structural Frame": 3,
+        "Wiring Bundle": 3,
+        "Circuit Board": 3,
+        "Heat Sink": 3,
+        "Silver Laser Head": 3,
+        "Pressure Vessel": 3
+      },
+      "base_seconds": 27000,
+      "base_fee_c": 450
     },
     {
       "name": "T2 Standard Silver Mining Laser",
@@ -1493,16 +1761,20 @@
       "tier": 2,
       "variant": "Standard",
       "components_each": 5,
-      "quantity_status": "verified",
       "frame": "Steel Frame",
       "board": "Silver-Plated Circuit Board",
       "mining_rate_m3_s": 0.15,
       "fuel_cartridge_pct_per_min": 0,
-      "fabrication_fee_estimate_c": 576.24,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 600,
-      "base_seconds_estimate": 36000,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "silver_mining_laser_t2",
+      "inputs_items": {
+        "Steel Frame": 5,
+        "Wiring Bundle": 5,
+        "Silver-plated Circuit Board": 5,
+        "Heat Sink": 5,
+        "Silver Laser Head": 5
+      },
+      "base_seconds": 36000,
+      "base_fee_c": 600
     },
     {
       "name": "T2 Fuel Silver Mining Laser",
@@ -1510,16 +1782,21 @@
       "tier": 2,
       "variant": "Fuel",
       "components_each": 5,
-      "quantity_status": "verified",
       "frame": "Steel Frame",
       "board": "Silver-Plated Circuit Board",
       "mining_rate_m3_s": 0.1725,
-      "fuel_cartridge_pct_per_min": 5.0,
-      "fabrication_fee_estimate_c": 1152.48,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 1200,
-      "base_seconds_estimate": 72000,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "fuel_cartridge_pct_per_min": 5,
+      "id": "fuel_silver_mining_laser_t2",
+      "inputs_items": {
+        "Steel Frame": 5,
+        "Wiring Bundle": 5,
+        "Silver-plated Circuit Board": 5,
+        "Heat Sink": 5,
+        "Silver Laser Head": 5,
+        "Pressure Vessel": 5
+      },
+      "base_seconds": 72000,
+      "base_fee_c": 1200
     },
     {
       "name": "T2 Nuclear Silver Mining Laser",
@@ -1527,16 +1804,21 @@
       "tier": 2,
       "variant": "Nuclear",
       "components_each": 5,
-      "quantity_status": "verified",
       "frame": "Steel Frame",
       "board": "Silver-Plated Circuit Board",
       "mining_rate_m3_s": 0.195,
       "fuel_cartridge_pct_per_min": 10,
-      "fabrication_fee_estimate_c": 1728.72,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 1800,
-      "base_seconds_estimate": 108000,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "nuclear_silver_mining_laser_t2",
+      "inputs_items": {
+        "Steel Frame": 5,
+        "Wiring Bundle": 5,
+        "Silver-plated Circuit Board": 5,
+        "Heat Sink": 5,
+        "Silver Laser Head": 5,
+        "Pressure Vessel": 5
+      },
+      "base_seconds": 108000,
+      "base_fee_c": 1800
     },
     {
       "name": "T3 Standard Silver Mining Laser",
@@ -1544,16 +1826,20 @@
       "tier": 3,
       "variant": "Standard",
       "components_each": 8,
-      "quantity_status": "verified",
       "frame": "Titanium Steel Frame",
       "board": "Gold-Plated Circuit Board",
       "mining_rate_m3_s": 0.2,
       "fuel_cartridge_pct_per_min": 0,
-      "fabrication_fee_estimate_c": 1152.48,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 1200,
-      "base_seconds_estimate": 72000,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "silver_mining_laser_t3",
+      "inputs_items": {
+        "Titanium Steel Frame": 8,
+        "Wiring Bundle": 8,
+        "Gold-plated Circuit Board": 8,
+        "Heat Sink": 8,
+        "Silver Laser Head": 8
+      },
+      "base_seconds": 72000,
+      "base_fee_c": 1200
     },
     {
       "name": "T3 Fuel Silver Mining Laser",
@@ -1561,16 +1847,21 @@
       "tier": 3,
       "variant": "Fuel",
       "components_each": 8,
-      "quantity_status": "verified",
       "frame": "Titanium Steel Frame",
       "board": "Gold-Plated Circuit Board",
-      "mining_rate_m3_s": 0.22999999999999998,
+      "mining_rate_m3_s": 0.23,
       "fuel_cartridge_pct_per_min": 7.5,
-      "fabrication_fee_estimate_c": 2304.96,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 2400,
-      "base_seconds_estimate": 144000,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "fuel_silver_mining_laser_t3",
+      "inputs_items": {
+        "Titanium Steel Frame": 8,
+        "Wiring Bundle": 8,
+        "Gold-plated Circuit Board": 8,
+        "Heat Sink": 8,
+        "Silver Laser Head": 8,
+        "Pressure Vessel": 8
+      },
+      "base_seconds": 144000,
+      "base_fee_c": 2400
     },
     {
       "name": "T3 Nuclear Silver Mining Laser",
@@ -1578,16 +1869,21 @@
       "tier": 3,
       "variant": "Nuclear",
       "components_each": 8,
-      "quantity_status": "verified",
       "frame": "Titanium Steel Frame",
       "board": "Gold-Plated Circuit Board",
       "mining_rate_m3_s": 0.26,
       "fuel_cartridge_pct_per_min": 15,
-      "fabrication_fee_estimate_c": 3457.44,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 3600,
-      "base_seconds_estimate": 216000,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "nuclear_silver_mining_laser_t3",
+      "inputs_items": {
+        "Titanium Steel Frame": 8,
+        "Wiring Bundle": 8,
+        "Gold-plated Circuit Board": 8,
+        "Heat Sink": 8,
+        "Silver Laser Head": 8,
+        "Pressure Vessel": 8
+      },
+      "base_seconds": 216000,
+      "base_fee_c": 3600
     },
     {
       "name": "T1 Standard Gold Mining Laser",
@@ -1595,16 +1891,20 @@
       "tier": 1,
       "variant": "Standard",
       "components_each": 3,
-      "quantity_status": "verified",
       "frame": "Structural Frame",
       "board": "Circuit Board",
       "mining_rate_m3_s": 0.1,
       "fuel_cartridge_pct_per_min": 0,
-      "fabrication_fee_estimate_c": 144.06,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 150,
-      "base_seconds_estimate": 9000,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "gold_mining_laser",
+      "inputs_items": {
+        "Structural Frame": 3,
+        "Wiring Bundle": 3,
+        "Circuit Board": 3,
+        "Heat Sink": 3,
+        "Gold Laser Head": 3
+      },
+      "base_seconds": 9000,
+      "base_fee_c": 150
     },
     {
       "name": "T1 Fuel Gold Mining Laser",
@@ -1612,16 +1912,21 @@
       "tier": 1,
       "variant": "Fuel",
       "components_each": 3,
-      "quantity_status": "verified",
       "frame": "Structural Frame",
       "board": "Circuit Board",
-      "mining_rate_m3_s": 0.11499999999999999,
+      "mining_rate_m3_s": 0.115,
       "fuel_cartridge_pct_per_min": 2.5,
-      "fabrication_fee_estimate_c": 288.12,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 300,
-      "base_seconds_estimate": 18000,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "fuel_gold_mining_laser",
+      "inputs_items": {
+        "Structural Frame": 3,
+        "Wiring Bundle": 3,
+        "Circuit Board": 3,
+        "Heat Sink": 3,
+        "Gold Laser Head": 3,
+        "Pressure Vessel": 3
+      },
+      "base_seconds": 18000,
+      "base_fee_c": 300
     },
     {
       "name": "T1 Nuclear Gold Mining Laser",
@@ -1629,118 +1934,151 @@
       "tier": 1,
       "variant": "Nuclear",
       "components_each": 3,
-      "quantity_status": "verified",
       "frame": "Structural Frame",
       "board": "Circuit Board",
       "mining_rate_m3_s": 0.13,
       "fuel_cartridge_pct_per_min": 5,
-      "fabrication_fee_estimate_c": 432.18,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 450,
-      "base_seconds_estimate": 27000,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "nuclear_gold_mining_laser",
+      "inputs_items": {
+        "Structural Frame": 3,
+        "Wiring Bundle": 3,
+        "Circuit Board": 3,
+        "Heat Sink": 3,
+        "Gold Laser Head": 3,
+        "Pressure Vessel": 3
+      },
+      "base_seconds": 27000,
+      "base_fee_c": 450
     },
     {
       "name": "T2 Standard Gold Mining Laser",
       "ore": "Gold",
       "tier": 2,
       "variant": "Standard",
-      "components_each": null,
-      "quantity_status": "unknown - do not infer",
+      "components_each": 5,
       "frame": "Steel Frame",
       "board": "Silver-Plated Circuit Board",
       "mining_rate_m3_s": 0.15,
       "fuel_cartridge_pct_per_min": 0,
-      "fabrication_fee_estimate_c": 576.24,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 600,
-      "base_seconds_estimate": 36000,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "gold_mining_laser_t2",
+      "inputs_items": {
+        "Steel Frame": 5,
+        "Wiring Bundle": 5,
+        "Silver-plated Circuit Board": 5,
+        "Heat Sink": 5,
+        "Gold Laser Head": 5
+      },
+      "base_seconds": 36000,
+      "base_fee_c": 600
     },
     {
       "name": "T2 Fuel Gold Mining Laser",
       "ore": "Gold",
       "tier": 2,
       "variant": "Fuel",
-      "components_each": null,
-      "quantity_status": "unknown - do not infer",
+      "components_each": 5,
       "frame": "Steel Frame",
       "board": "Silver-Plated Circuit Board",
       "mining_rate_m3_s": 0.1725,
-      "fuel_cartridge_pct_per_min": 5.0,
-      "fabrication_fee_estimate_c": 1152.48,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 1200,
-      "base_seconds_estimate": 72000,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "fuel_cartridge_pct_per_min": 5,
+      "id": "fuel_gold_mining_laser_t2",
+      "inputs_items": {
+        "Steel Frame": 5,
+        "Wiring Bundle": 5,
+        "Silver-plated Circuit Board": 5,
+        "Heat Sink": 5,
+        "Gold Laser Head": 5,
+        "Pressure Vessel": 5
+      },
+      "base_seconds": 72000,
+      "base_fee_c": 1200
     },
     {
       "name": "T2 Nuclear Gold Mining Laser",
       "ore": "Gold",
       "tier": 2,
       "variant": "Nuclear",
-      "components_each": null,
-      "quantity_status": "unknown - do not infer",
+      "components_each": 5,
       "frame": "Steel Frame",
       "board": "Silver-Plated Circuit Board",
       "mining_rate_m3_s": 0.195,
       "fuel_cartridge_pct_per_min": 10,
-      "fabrication_fee_estimate_c": 1728.72,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 1800,
-      "base_seconds_estimate": 108000,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "nuclear_gold_mining_laser_t2",
+      "inputs_items": {
+        "Steel Frame": 5,
+        "Wiring Bundle": 5,
+        "Silver-plated Circuit Board": 5,
+        "Heat Sink": 5,
+        "Gold Laser Head": 5,
+        "Pressure Vessel": 5
+      },
+      "base_seconds": 108000,
+      "base_fee_c": 1800
     },
     {
       "name": "T3 Standard Gold Mining Laser",
       "ore": "Gold",
       "tier": 3,
       "variant": "Standard",
-      "components_each": null,
-      "quantity_status": "unknown - do not infer",
+      "components_each": 8,
       "frame": "Titanium Steel Frame",
       "board": "Gold-Plated Circuit Board",
       "mining_rate_m3_s": 0.2,
       "fuel_cartridge_pct_per_min": 0,
-      "fabrication_fee_estimate_c": 1152.48,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 1200,
-      "base_seconds_estimate": 72000,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "gold_mining_laser_t3",
+      "inputs_items": {
+        "Titanium Steel Frame": 8,
+        "Wiring Bundle": 8,
+        "Gold-plated Circuit Board": 8,
+        "Heat Sink": 8,
+        "Gold Laser Head": 8
+      },
+      "base_seconds": 72000,
+      "base_fee_c": 1200
     },
     {
       "name": "T3 Fuel Gold Mining Laser",
       "ore": "Gold",
       "tier": 3,
       "variant": "Fuel",
-      "components_each": null,
-      "quantity_status": "unknown - do not infer",
+      "components_each": 8,
       "frame": "Titanium Steel Frame",
       "board": "Gold-Plated Circuit Board",
-      "mining_rate_m3_s": 0.22999999999999998,
+      "mining_rate_m3_s": 0.23,
       "fuel_cartridge_pct_per_min": 7.5,
-      "fabrication_fee_estimate_c": 2304.96,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 2400,
-      "base_seconds_estimate": 144000,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "fuel_gold_mining_laser_t3",
+      "inputs_items": {
+        "Titanium Steel Frame": 8,
+        "Wiring Bundle": 8,
+        "Gold-plated Circuit Board": 8,
+        "Heat Sink": 8,
+        "Gold Laser Head": 8,
+        "Pressure Vessel": 8
+      },
+      "base_seconds": 144000,
+      "base_fee_c": 2400
     },
     {
       "name": "T3 Nuclear Gold Mining Laser",
       "ore": "Gold",
       "tier": 3,
       "variant": "Nuclear",
-      "components_each": null,
-      "quantity_status": "unknown - do not infer",
+      "components_each": 8,
       "frame": "Titanium Steel Frame",
       "board": "Gold-Plated Circuit Board",
       "mining_rate_m3_s": 0.26,
       "fuel_cartridge_pct_per_min": 15,
-      "fabrication_fee_estimate_c": 3457.44,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 3600,
-      "base_seconds_estimate": 216000,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "nuclear_gold_mining_laser_t3",
+      "inputs_items": {
+        "Titanium Steel Frame": 8,
+        "Wiring Bundle": 8,
+        "Gold-plated Circuit Board": 8,
+        "Heat Sink": 8,
+        "Gold Laser Head": 8,
+        "Pressure Vessel": 8
+      },
+      "base_seconds": 216000,
+      "base_fee_c": 3600
     },
     {
       "name": "T1 Standard Uranium Mining Laser",
@@ -1748,16 +2086,20 @@
       "tier": 1,
       "variant": "Standard",
       "components_each": 3,
-      "quantity_status": "verified",
       "frame": "Structural Frame",
       "board": "Circuit Board",
       "mining_rate_m3_s": 0.1,
       "fuel_cartridge_pct_per_min": 0,
-      "fabrication_fee_estimate_c": 172.87,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 180,
-      "base_seconds_estimate": 10800,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "uranium_mining_laser",
+      "inputs_items": {
+        "Structural Frame": 3,
+        "Wiring Bundle": 3,
+        "Circuit Board": 3,
+        "Heat Sink": 3,
+        "Uranium Laser Head": 3
+      },
+      "base_seconds": 10800,
+      "base_fee_c": 180
     },
     {
       "name": "T1 Fuel Uranium Mining Laser",
@@ -1765,16 +2107,21 @@
       "tier": 1,
       "variant": "Fuel",
       "components_each": 3,
-      "quantity_status": "verified",
       "frame": "Structural Frame",
       "board": "Circuit Board",
-      "mining_rate_m3_s": 0.11499999999999999,
+      "mining_rate_m3_s": 0.115,
       "fuel_cartridge_pct_per_min": 2.5,
-      "fabrication_fee_estimate_c": 345.74,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 360,
-      "base_seconds_estimate": 21600,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "fuel_uranium_mining_laser",
+      "inputs_items": {
+        "Structural Frame": 3,
+        "Wiring Bundle": 3,
+        "Circuit Board": 3,
+        "Heat Sink": 3,
+        "Uranium Laser Head": 3,
+        "Pressure Vessel": 3
+      },
+      "base_seconds": 21600,
+      "base_fee_c": 360
     },
     {
       "name": "T1 Nuclear Uranium Mining Laser",
@@ -1782,16 +2129,21 @@
       "tier": 1,
       "variant": "Nuclear",
       "components_each": 3,
-      "quantity_status": "verified",
       "frame": "Structural Frame",
       "board": "Circuit Board",
       "mining_rate_m3_s": 0.13,
       "fuel_cartridge_pct_per_min": 5,
-      "fabrication_fee_estimate_c": 518.61,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 540,
-      "base_seconds_estimate": 32400,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "nuclear_uranium_mining_laser",
+      "inputs_items": {
+        "Structural Frame": 3,
+        "Wiring Bundle": 3,
+        "Circuit Board": 3,
+        "Heat Sink": 3,
+        "Uranium Laser Head": 3,
+        "Pressure Vessel": 3
+      },
+      "base_seconds": 32400,
+      "base_fee_c": 540
     },
     {
       "name": "T2 Standard Uranium Mining Laser",
@@ -1799,16 +2151,20 @@
       "tier": 2,
       "variant": "Standard",
       "components_each": 6,
-      "quantity_status": "verified",
       "frame": "Steel Frame",
       "board": "Silver-Plated Circuit Board",
       "mining_rate_m3_s": 0.15,
       "fuel_cartridge_pct_per_min": 0,
-      "fabrication_fee_estimate_c": 691.48,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 720,
-      "base_seconds_estimate": 43200,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "uranium_mining_laser_t2",
+      "inputs_items": {
+        "Steel Frame": 6,
+        "Wiring Bundle": 6,
+        "Silver-plated Circuit Board": 6,
+        "Heat Sink": 6,
+        "Uranium Laser Head": 6
+      },
+      "base_seconds": 43200,
+      "base_fee_c": 720
     },
     {
       "name": "T2 Fuel Uranium Mining Laser",
@@ -1816,16 +2172,21 @@
       "tier": 2,
       "variant": "Fuel",
       "components_each": 6,
-      "quantity_status": "verified",
       "frame": "Steel Frame",
       "board": "Silver-Plated Circuit Board",
       "mining_rate_m3_s": 0.1725,
-      "fuel_cartridge_pct_per_min": 5.0,
-      "fabrication_fee_estimate_c": 1382.96,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 1440,
-      "base_seconds_estimate": 86400,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "fuel_cartridge_pct_per_min": 5,
+      "id": "fuel_uranium_mining_laser_t2",
+      "inputs_items": {
+        "Steel Frame": 6,
+        "Wiring Bundle": 6,
+        "Silver-plated Circuit Board": 6,
+        "Heat Sink": 6,
+        "Uranium Laser Head": 6,
+        "Pressure Vessel": 6
+      },
+      "base_seconds": 86400,
+      "base_fee_c": 1440
     },
     {
       "name": "T2 Nuclear Uranium Mining Laser",
@@ -1833,16 +2194,21 @@
       "tier": 2,
       "variant": "Nuclear",
       "components_each": 6,
-      "quantity_status": "verified",
       "frame": "Steel Frame",
       "board": "Silver-Plated Circuit Board",
       "mining_rate_m3_s": 0.195,
       "fuel_cartridge_pct_per_min": 10,
-      "fabrication_fee_estimate_c": 2074.44,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 2160,
-      "base_seconds_estimate": 129600,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "nuclear_uranium_mining_laser_t2",
+      "inputs_items": {
+        "Steel Frame": 6,
+        "Wiring Bundle": 6,
+        "Silver-plated Circuit Board": 6,
+        "Heat Sink": 6,
+        "Uranium Laser Head": 6,
+        "Pressure Vessel": 6
+      },
+      "base_seconds": 129600,
+      "base_fee_c": 2160
     },
     {
       "name": "T3 Standard Uranium Mining Laser",
@@ -1850,16 +2216,20 @@
       "tier": 3,
       "variant": "Standard",
       "components_each": 9,
-      "quantity_status": "verified",
       "frame": "Titanium Steel Frame",
       "board": "Gold-Plated Circuit Board",
       "mining_rate_m3_s": 0.2,
       "fuel_cartridge_pct_per_min": 0,
-      "fabrication_fee_estimate_c": 1382.96,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 1440,
-      "base_seconds_estimate": 86400,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "uranium_mining_laser_t3",
+      "inputs_items": {
+        "Titanium Steel Frame": 9,
+        "Wiring Bundle": 9,
+        "Gold-plated Circuit Board": 9,
+        "Heat Sink": 9,
+        "Uranium Laser Head": 9
+      },
+      "base_seconds": 86400,
+      "base_fee_c": 1440
     },
     {
       "name": "T3 Fuel Uranium Mining Laser",
@@ -1867,16 +2237,21 @@
       "tier": 3,
       "variant": "Fuel",
       "components_each": 9,
-      "quantity_status": "verified",
       "frame": "Titanium Steel Frame",
       "board": "Gold-Plated Circuit Board",
-      "mining_rate_m3_s": 0.22999999999999998,
+      "mining_rate_m3_s": 0.23,
       "fuel_cartridge_pct_per_min": 7.5,
-      "fabrication_fee_estimate_c": 2765.92,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 2880,
-      "base_seconds_estimate": 172800,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "fuel_uranium_mining_laser_t3",
+      "inputs_items": {
+        "Titanium Steel Frame": 9,
+        "Wiring Bundle": 9,
+        "Gold-plated Circuit Board": 9,
+        "Heat Sink": 9,
+        "Uranium Laser Head": 9,
+        "Pressure Vessel": 9
+      },
+      "base_seconds": 172800,
+      "base_fee_c": 2880
     },
     {
       "name": "T3 Nuclear Uranium Mining Laser",
@@ -1884,16 +2259,21 @@
       "tier": 3,
       "variant": "Nuclear",
       "components_each": 9,
-      "quantity_status": "verified",
       "frame": "Titanium Steel Frame",
       "board": "Gold-Plated Circuit Board",
       "mining_rate_m3_s": 0.26,
       "fuel_cartridge_pct_per_min": 15,
-      "fabrication_fee_estimate_c": 4148.88,
-      "fee_status": "estimate from displayed rounded T1 fee; exact displayed rounding may differ",
-      "base_fee_c_estimate": 4320,
-      "base_seconds_estimate": 259200,
-      "time_status": "calculated from verified tier/variant scaling and screenshot times; exact displayed seconds may vary by rounding"
+      "id": "nuclear_uranium_mining_laser_t3",
+      "inputs_items": {
+        "Titanium Steel Frame": 9,
+        "Wiring Bundle": 9,
+        "Gold-plated Circuit Board": 9,
+        "Heat Sink": 9,
+        "Uranium Laser Head": 9,
+        "Pressure Vessel": 9
+      },
+      "base_seconds": 259200,
+      "base_fee_c": 4320
     }
   ],
   "engines": [
@@ -1903,18 +2283,16 @@
       "seconds_per_distance": 30,
       "unfueled_seconds_per_distance": null,
       "cartridge_pct_per_distance": 0,
-      "fabrication_fee_c": 115.25,
-      "status": "screenshots verified; fee may have rounding difference",
-      "base_fabrication_fee_c_estimate": 120,
-      "base_seconds_estimate": 7200,
-      "time_status": "derived from screenshot fabrication times; rounded display may differ by one second",
       "inputs_items": {
         "Structural Frame": 1,
         "Wiring Bundle": 1,
         "Circuit Board": 1,
         "Pressure Vessel": 1,
         "Heat Sink": 1
-      }
+      },
+      "id": "engine_t1_1",
+      "base_seconds": 7200,
+      "base_fee_c": 120
     },
     {
       "name": "T1 Engine 2",
@@ -1922,30 +2300,23 @@
       "seconds_per_distance": 27.5,
       "unfueled_seconds_per_distance": null,
       "cartridge_pct_per_distance": 0,
-      "fabrication_fee_c": 345.74,
-      "status": "screenshots verified; fee may have rounding difference",
-      "base_fabrication_fee_c_estimate": 360,
-      "base_seconds_estimate": 21600,
-      "time_status": "derived from screenshot fabrication times; rounded display may differ by one second",
       "inputs_items": {
         "Structural Frame": 3,
         "Wiring Bundle": 3,
         "Circuit Board": 3,
         "Pressure Vessel": 3,
         "Heat Sink": 3
-      }
+      },
+      "id": "engine_t1_2",
+      "base_seconds": 21600,
+      "base_fee_c": 360
     },
     {
       "name": "T1 Fuel Powered Engine",
       "tier": 1,
       "seconds_per_distance": 25,
       "unfueled_seconds_per_distance": 30,
-      "cartridge_pct_per_distance": 2,
-      "fabrication_fee_c": 345.74,
-      "status": "screenshots verified; fee may have rounding difference",
-      "base_fabrication_fee_c_estimate": 360,
-      "base_seconds_estimate": 21600,
-      "time_status": "derived from screenshot fabrication times; rounded display may differ by one second",
+      "cartridge_pct_per_distance": 1,
       "inputs_items": {
         "Structural Frame": 3,
         "Wiring Bundle": 3,
@@ -1954,7 +2325,10 @@
         "Heat Sink": 3,
         "Ceramic Liner": 2,
         "Sensor Array": 1
-      }
+      },
+      "id": "fuel_engine_t1",
+      "base_seconds": 21600,
+      "base_fee_c": 360
     },
     {
       "name": "T2 Engine 1",
@@ -1962,20 +2336,18 @@
       "seconds_per_distance": 25,
       "unfueled_seconds_per_distance": null,
       "cartridge_pct_per_distance": 0,
-      "fabrication_fee_c": 230.5,
-      "status": "screenshots verified; fee may have rounding difference",
-      "base_fabrication_fee_c_estimate": 240,
-      "base_seconds_estimate": 14400,
-      "time_status": "derived from screenshot fabrication times; rounded display may differ by one second",
       "inputs_items": {
         "Steel Frame": 2,
         "Wiring Bundle": 2,
-        "Silver-Plated Circuit Board": 2,
+        "Silver-plated Circuit Board": 2,
         "Pressure Vessel": 2,
         "Heat Sink": 2,
         "Titanium Brace": 2,
         "Sensor Array": 2
-      }
+      },
+      "id": "engine_t2_1",
+      "base_seconds": 14400,
+      "base_fee_c": 240
     },
     {
       "name": "T2 Engine 2",
@@ -1983,42 +2355,38 @@
       "seconds_per_distance": 22.5,
       "unfueled_seconds_per_distance": null,
       "cartridge_pct_per_distance": 0,
-      "fabrication_fee_c": 691.49,
-      "status": "screenshots verified; fee may have rounding difference",
-      "base_fabrication_fee_c_estimate": 720,
-      "base_seconds_estimate": 43200,
-      "time_status": "derived from screenshot fabrication times; rounded display may differ by one second",
       "inputs_items": {
         "Steel Frame": 6,
         "Wiring Bundle": 6,
-        "Silver-Plated Circuit Board": 6,
+        "Silver-plated Circuit Board": 6,
         "Pressure Vessel": 6,
         "Heat Sink": 6,
         "Titanium Brace": 6,
         "Sensor Array": 6
-      }
+      },
+      "id": "engine_t2_2",
+      "base_seconds": 43200,
+      "base_fee_c": 720
     },
     {
       "name": "T2 Fuel Powered Engine",
       "tier": 2,
       "seconds_per_distance": 20,
       "unfueled_seconds_per_distance": 25,
-      "cartridge_pct_per_distance": 4,
-      "fabrication_fee_c": 691.49,
-      "status": "screenshots verified; fee may have rounding difference",
-      "base_fabrication_fee_c_estimate": 720,
-      "base_seconds_estimate": 43200,
-      "time_status": "derived from screenshot fabrication times; rounded display may differ by one second",
+      "cartridge_pct_per_distance": 1,
       "inputs_items": {
         "Steel Frame": 6,
         "Wiring Bundle": 6,
-        "Silver-Plated Circuit Board": 6,
+        "Silver-plated Circuit Board": 6,
         "Pressure Vessel": 6,
         "Heat Sink": 6,
         "Titanium Brace": 6,
         "Sensor Array": 8,
         "Ceramic Liner": 4
-      }
+      },
+      "id": "fuel_engine_t2",
+      "base_seconds": 43200,
+      "base_fee_c": 720
     },
     {
       "name": "T3 Engine 1",
@@ -2026,22 +2394,20 @@
       "seconds_per_distance": 20,
       "unfueled_seconds_per_distance": null,
       "cartridge_pct_per_distance": 0,
-      "fabrication_fee_c": 460.99,
-      "status": "screenshots verified; fee may have rounding difference",
-      "base_fabrication_fee_c_estimate": 480,
-      "base_seconds_estimate": 28800,
-      "time_status": "derived from screenshot fabrication times; rounded display may differ by one second",
       "inputs_items": {
         "Titanium Steel Frame": 3,
         "Wiring Bundle": 3,
-        "Gold-Plated Circuit Board": 3,
+        "Gold-plated Circuit Board": 3,
         "Pressure Vessel": 3,
         "Heat Sink": 3,
         "Titanium Brace": 3,
         "Sensor Array": 3,
         "Radiation Shield": 3,
         "Composite Panel": 3
-      }
+      },
+      "id": "engine_t3_1",
+      "base_seconds": 28800,
+      "base_fee_c": 480
     },
     {
       "name": "T3 Engine 2",
@@ -2049,38 +2415,31 @@
       "seconds_per_distance": 17.5,
       "unfueled_seconds_per_distance": null,
       "cartridge_pct_per_distance": 0,
-      "fabrication_fee_c": 1382.98,
-      "status": "screenshots verified; fee may have rounding difference",
-      "base_fabrication_fee_c_estimate": 1440,
-      "base_seconds_estimate": 86400,
-      "time_status": "derived from screenshot fabrication times; rounded display may differ by one second",
       "inputs_items": {
         "Titanium Steel Frame": 9,
         "Wiring Bundle": 9,
-        "Gold-Plated Circuit Board": 9,
+        "Gold-plated Circuit Board": 9,
         "Pressure Vessel": 9,
         "Heat Sink": 9,
         "Titanium Brace": 9,
         "Sensor Array": 9,
         "Radiation Shield": 9,
         "Composite Panel": 9
-      }
+      },
+      "id": "engine_t3_2",
+      "base_seconds": 86400,
+      "base_fee_c": 1440
     },
     {
       "name": "T3 Fuel Powered Engine",
       "tier": 3,
       "seconds_per_distance": 15,
       "unfueled_seconds_per_distance": 20,
-      "cartridge_pct_per_distance": 6,
-      "fabrication_fee_c": 1382.98,
-      "status": "screenshots verified; fee may have rounding difference",
-      "base_fabrication_fee_c_estimate": 1440,
-      "base_seconds_estimate": 86400,
-      "time_status": "derived from screenshot fabrication times; rounded display may differ by one second",
+      "cartridge_pct_per_distance": 1,
       "inputs_items": {
         "Titanium Steel Frame": 9,
         "Wiring Bundle": 9,
-        "Gold-Plated Circuit Board": 9,
+        "Gold-plated Circuit Board": 9,
         "Pressure Vessel": 9,
         "Heat Sink": 9,
         "Titanium Brace": 9,
@@ -2088,7 +2447,10 @@
         "Radiation Shield": 9,
         "Composite Panel": 9,
         "Ceramic Liner": 6
-      }
+      },
+      "id": "fuel_engine_t3",
+      "base_seconds": 86400,
+      "base_fee_c": 1440
     }
   ],
   "stations": [
@@ -2158,132 +2520,6 @@
       ]
     }
   ],
-  "other_fabrication": {
-    "Drone Bays": {
-      "T1 Bay 1": {
-        "capacity": 1,
-        "quantity": 1
-      },
-      "T1 Bay 2": {
-        "capacity": 2,
-        "quantity": 3
-      },
-      "T2 Bay 1": {
-        "capacity": 3,
-        "quantity": 2
-      },
-      "T2 Bay 2": {
-        "capacity": 4,
-        "quantity": 6
-      },
-      "T3 Bay 1": {
-        "capacity": 5,
-        "quantity": 3
-      },
-      "T3 Bay 2": {
-        "capacity": 6,
-        "quantity": 9
-      }
-    },
-    "Utility Equipment": {
-      "Cargo Expansion": {
-        "tiers": [
-          1,
-          2,
-          3
-        ],
-        "effects": "Doubles cargo slot depth; +50% travel time"
-      },
-      "Auxiliary Fuel Tank": {
-        "tiers": [
-          1,
-          2,
-          3
-        ],
-        "effects": "+100% base fuel capacity per tank; +10% travel time per tank"
-      }
-    },
-    "Drones": {
-      "Speed": {
-        "cargo_m3": [
-          20,
-          25,
-          30
-        ],
-        "seconds_per_distance": [
-          90,
-          75,
-          50
-        ],
-        "fuel_m3_per_distance": [
-          0.05,
-          0.1,
-          0.15
-        ]
-      },
-      "Capacity": {
-        "cargo_m3": [
-          35,
-          45,
-          65
-        ],
-        "seconds_per_distance": [
-          120,
-          100,
-          86
-        ],
-        "fuel_m3_per_distance": [
-          0.1,
-          0.2,
-          0.3
-        ]
-      },
-      "Disposable Delivery": {
-        "cargo_m3": 50,
-        "seconds_per_distance": 60,
-        "fuel_m3_per_distance": 0.05
-      }
-    },
-    "Station Equipment": {
-      "Radar": {
-        "radius": 5,
-        "nuclear_cartridges": 5,
-        "hours_per_cartridge": 48,
-        "recoverable": false
-      },
-      "Claim Anchor": {
-        "fuel_capacity_m3": 30,
-        "fuel_m3_per_hour": 5,
-        "recoverable": true
-      }
-    }
-  },
-  "mechanics": {
-    "market_fee_fraction": 0.02,
-    "industrialist_rank": 2,
-    "industrialist_multiplier": 0.9604,
-    "printer_speed_bonus": 0.02,
-    "fabricator_speed_bonus": 0.02,
-    "refiner_speed_bonus": 0.06,
-    "shipwright_speed_bonus": 0.1,
-    "project_inactivity_days": 7,
-    "asteroid_discovery_chance": 0.3333333333333333,
-    "asteroid_refresh_hours": 24,
-    "captain_ship_tier": {
-      "T1": 0,
-      "T2": 10,
-      "T3": 20
-    },
-    "drone_operator_max_drones": {
-      "0-9": 2,
-      "10-19": 3,
-      "20+": 4
-    },
-    "travel_distance": "Euclidean distance (inferred from examples)",
-    "boomerang": "Unpiloted; empty reposition between stations, carries station materials to projects only; exempt drone limit",
-    "porter": "Unpiloted remote shuttle; exempt drone limit",
-    "ship_control": "Only one piloted ship at a time"
-  },
   "talent_definitions": [
     [
       "Piloting",
@@ -2431,12 +2667,20 @@
       1,
       "slots",
       false
+    ],
+    [
+      "Wallet Capacity",
+      "Silver Coin capacity",
+      2,
+      "coins",
+      false
     ]
   ],
   "character_defaults": {
     "skills": {
       "Captain": 0,
-      "Drone Operator": 0
+      "Drone Operator": 0,
+      "Long Distance Traveler": 0
     },
     "talents": {
       "Piloting": 0,
@@ -2459,215 +2703,121 @@
       "Heavy Hauler": 0,
       "Tetris Master": 0,
       "Contract Negotiator": 0,
-      "Contract Specialist": 0
+      "Contract Specialist": 0,
+      "Wallet Capacity": 0
     }
   },
   "fabrication_recipes": [
     {
-      "name": "T1 Drone Bay 1",
-      "category": "Drone Bays",
-      "tier": 1,
+      "id": "radar_assembly",
+      "name": "Radar Assembly",
+      "category": "Station Equipment",
+      "tier": 0,
       "inputs_items": {
-        "Structural Frame": 1,
-        "Wiring Bundle": 1,
-        "Circuit Board": 1,
-        "Actuator": 1
-      },
-      "base_fee_c": 360,
-      "base_seconds": 21600,
-      "description": "Holds 1 hauling drones.",
-      "status": "screenshot verified"
-    },
-    {
-      "name": "T1 Drone Bay 2",
-      "category": "Drone Bays",
-      "tier": 1,
-      "inputs_items": {
-        "Structural Frame": 3,
-        "Wiring Bundle": 3,
-        "Circuit Board": 3,
-        "Actuator": 3
-      },
-      "base_fee_c": 360,
-      "base_seconds": 21600,
-      "description": "Holds 2 hauling drones.",
-      "status": "screenshot verified"
-    },
-    {
-      "name": "T2 Drone Bay 1",
-      "category": "Drone Bays",
-      "tier": 2,
-      "inputs_items": {
-        "Steel Frame": 2,
+        "Structural Frame": 2,
+        "Sensor Array": 3,
+        "Circuit Board": 2,
         "Wiring Bundle": 2,
-        "Silver-Plated Circuit Board": 2,
-        "Actuator": 2,
-        "Titanium Brace": 2,
-        "Sensor Array": 2
+        "Radiation Shield": 1,
+        "Heat Sink": 1,
+        "Silver-plated Circuit Board": 1
       },
-      "base_fee_c": 360,
-      "base_seconds": 21600,
-      "description": "Holds 3 hauling drones.",
-      "status": "screenshot verified"
+      "base_fee_c": 30,
+      "base_seconds": 1800,
+      "description": "100 m³ station equipment."
     },
     {
-      "name": "T2 Drone Bay 2",
-      "category": "Drone Bays",
-      "tier": 2,
+      "id": "orbital_camera_assembly",
+      "name": "Orbital Camera Assembly",
+      "category": "Station Equipment",
+      "tier": 0,
       "inputs_items": {
-        "Steel Frame": 6,
+        "Structural Frame": 2,
+        "Sensor Array": 3,
+        "Circuit Board": 2,
+        "Wiring Bundle": 1,
+        "Composite Panel": 1,
+        "Actuator": 2,
+        "Gold-plated Circuit Board": 1
+      },
+      "base_fee_c": 30,
+      "base_seconds": 1800,
+      "description": "100 m³ station equipment."
+    },
+    {
+      "id": "radio_receiver",
+      "name": "Radio Receiver",
+      "category": "Station Equipment",
+      "tier": 0,
+      "inputs_items": {
+        "Gold-plated Circuit Board": 2,
+        "Structural Frame": 2,
+        "Composite Panel": 2,
+        "Sensor Array": 3,
+        "Actuator": 1,
+        "Wiring Bundle": 2
+      },
+      "base_fee_c": 30,
+      "base_seconds": 1800,
+      "description": "100 m³ station equipment."
+    },
+    {
+      "id": "radio_transmitter",
+      "name": "Radio Transmitter",
+      "category": "Station Equipment",
+      "tier": 0,
+      "inputs_items": {
+        "Gold-plated Circuit Board": 2,
+        "Structural Frame": 2,
+        "Composite Panel": 1,
+        "Magnetic Pulse Coil": 3,
+        "Wiring Bundle": 2,
+        "Heat Sink": 2
+      },
+      "base_fee_c": 30,
+      "base_seconds": 1800,
+      "description": "100 m³ station equipment."
+    },
+    {
+      "id": "mobile_radar",
+      "name": "Mobile Radar",
+      "category": "Utility Equipment",
+      "tier": 1,
+      "inputs_items": {
+        "Titanium Steel Frame": 6,
+        "Ceramic Liner": 8,
+        "Sensor Array": 10,
+        "Radiation Shield": 6,
+        "Nuclear Fuel Cartridge": 1,
+        "Wiring Bundle": 8,
+        "Circuit Board": 8,
+        "Heat Sink": 4
+      },
+      "base_fee_c": 1440,
+      "base_seconds": 86400,
+      "description": "Ship-mounted radar for nearby activity."
+    },
+    {
+      "id": "asteroid_survey_radar",
+      "name": "Asteroid Survey Radar",
+      "category": "Utility Equipment",
+      "tier": 1,
+      "inputs_items": {
+        "Titanium Steel Frame": 5,
+        "Ceramic Liner": 6,
+        "Sensor Array": 8,
+        "Radiation Shield": 5,
+        "Nuclear Fuel Cartridge": 1,
         "Wiring Bundle": 6,
-        "Silver-Plated Circuit Board": 6,
-        "Actuator": 6,
-        "Titanium Brace": 6,
-        "Sensor Array": 6
+        "Circuit Board": 6,
+        "Heat Sink": 3
       },
-      "base_fee_c": 360,
-      "base_seconds": 21600,
-      "description": "Holds 4 hauling drones.",
-      "status": "screenshot verified"
+      "base_fee_c": 1440,
+      "base_seconds": 86400,
+      "description": "Ship-mounted radar for surveying asteroids."
     },
     {
-      "name": "T3 Drone Bay 1",
-      "category": "Drone Bays",
-      "tier": 3,
-      "inputs_items": {
-        "Titanium Steel Frame": 3,
-        "Wiring Bundle": 3,
-        "Gold-Plated Circuit Board": 3,
-        "Actuator": 3,
-        "Titanium Brace": 3,
-        "Sensor Array": 3,
-        "Radiation Shield": 3,
-        "Composite Panel": 3
-      },
-      "base_fee_c": 360,
-      "base_seconds": 21600,
-      "description": "Holds 5 hauling drones.",
-      "status": "screenshot verified"
-    },
-    {
-      "name": "T3 Drone Bay 2",
-      "category": "Drone Bays",
-      "tier": 3,
-      "inputs_items": {
-        "Titanium Steel Frame": 9,
-        "Wiring Bundle": 9,
-        "Gold-Plated Circuit Board": 9,
-        "Actuator": 9,
-        "Titanium Brace": 9,
-        "Sensor Array": 9,
-        "Radiation Shield": 9,
-        "Composite Panel": 9
-      },
-      "base_fee_c": 360,
-      "base_seconds": 21600,
-      "description": "Holds 6 hauling drones.",
-      "status": "screenshot verified"
-    },
-    {
-      "name": "T1 Speed Drone",
-      "category": "Drones",
-      "tier": 1,
-      "inputs_items": {
-        "Structural Frame": 1,
-        "Wiring Bundle": 1,
-        "Circuit Board": 1,
-        "Actuator": 1
-      },
-      "base_fee_c": 120,
-      "base_seconds": 7200,
-      "description": "Reusable hauling drone.",
-      "status": "screenshot verified"
-    },
-    {
-      "name": "T1 Capacity Drone",
-      "category": "Drones",
-      "tier": 1,
-      "inputs_items": {
-        "Structural Frame": 1,
-        "Wiring Bundle": 1,
-        "Circuit Board": 1,
-        "Actuator": 1
-      },
-      "base_fee_c": 120,
-      "base_seconds": 7200,
-      "description": "Reusable hauling drone.",
-      "status": "screenshot verified"
-    },
-    {
-      "name": "T2 Speed Drone",
-      "category": "Drones",
-      "tier": 2,
-      "inputs_items": {
-        "Steel Frame": 2,
-        "Wiring Bundle": 2,
-        "Silver-Plated Circuit Board": 2,
-        "Actuator": 2,
-        "Titanium Brace": 2,
-        "Sensor Array": 2
-      },
-      "base_fee_c": 240,
-      "base_seconds": 14400,
-      "description": "Reusable hauling drone.",
-      "status": "screenshot verified"
-    },
-    {
-      "name": "T2 Capacity Drone",
-      "category": "Drones",
-      "tier": 2,
-      "inputs_items": {
-        "Steel Frame": 2,
-        "Wiring Bundle": 2,
-        "Silver-Plated Circuit Board": 2,
-        "Actuator": 2,
-        "Titanium Brace": 2,
-        "Sensor Array": 2
-      },
-      "base_fee_c": 240,
-      "base_seconds": 14400,
-      "description": "Reusable hauling drone.",
-      "status": "screenshot verified"
-    },
-    {
-      "name": "T3 Speed Drone",
-      "category": "Drones",
-      "tier": 3,
-      "inputs_items": {
-        "Titanium Steel Frame": 3,
-        "Wiring Bundle": 3,
-        "Gold-Plated Circuit Board": 3,
-        "Actuator": 3,
-        "Titanium Brace": 3,
-        "Sensor Array": 3,
-        "Radiation Shield": 3,
-        "Composite Panel": 3
-      },
-      "base_fee_c": 360,
-      "base_seconds": 21600,
-      "description": "Reusable hauling drone.",
-      "status": "screenshot verified"
-    },
-    {
-      "name": "T3 Capacity Drone",
-      "category": "Drones",
-      "tier": 3,
-      "inputs_items": {
-        "Titanium Steel Frame": 3,
-        "Wiring Bundle": 3,
-        "Gold-Plated Circuit Board": 3,
-        "Actuator": 3,
-        "Titanium Brace": 3,
-        "Sensor Array": 3,
-        "Radiation Shield": 3,
-        "Composite Panel": 3
-      },
-      "base_fee_c": 360,
-      "base_seconds": 21600,
-      "description": "Reusable hauling drone.",
-      "status": "screenshot verified"
-    },
-    {
+      "id": "delivery_drone",
       "name": "Disposable Delivery Drone",
       "category": "Drones",
       "tier": 0,
@@ -2679,10 +2829,106 @@
       },
       "base_fee_c": 30,
       "base_seconds": 1800,
-      "description": "Single-use, 50 m³ cargo; not a reusable hauling drone.",
-      "status": "screenshot verified"
+      "description": "Single-use, 50 m³ cargo; not a reusable hauling drone."
     },
     {
+      "id": "cargo_expansion_t1",
+      "name": "T1 Cargo Expansion",
+      "category": "Utility Equipment",
+      "tier": 1,
+      "inputs_items": {
+        "Hull Panel": 10,
+        "Structural Frame": 10,
+        "Titanium Brace": 10,
+        "Composite Panel": 5,
+        "Actuator": 5
+      },
+      "base_fee_c": 1440,
+      "base_seconds": 86400,
+      "description": "Utility slot equipment. Doubles cargo slot depth, +50% travel time."
+    },
+    {
+      "id": "cargo_expansion_t2",
+      "name": "T2 Cargo Expansion",
+      "category": "Utility Equipment",
+      "tier": 2,
+      "inputs_items": {
+        "Hull Panel": 20,
+        "Steel Frame": 20,
+        "Titanium Brace": 20,
+        "Composite Panel": 10,
+        "Actuator": 10
+      },
+      "base_fee_c": 2880,
+      "base_seconds": 172800,
+      "description": "Utility slot equipment. Doubles cargo slot depth, +50% travel time."
+    },
+    {
+      "id": "cargo_expansion_t3",
+      "name": "T3 Cargo Expansion",
+      "category": "Utility Equipment",
+      "tier": 3,
+      "inputs_items": {
+        "Hull Panel": 30,
+        "Titanium Steel Frame": 30,
+        "Titanium Brace": 30,
+        "Composite Panel": 15,
+        "Actuator": 15
+      },
+      "base_fee_c": 4320,
+      "base_seconds": 259200,
+      "description": "Utility slot equipment. Doubles cargo slot depth, +50% travel time."
+    },
+    {
+      "id": "auxiliary_fuel_tank_t1",
+      "name": "T1 Auxiliary Fuel Tank",
+      "category": "Utility Equipment",
+      "tier": 1,
+      "inputs_items": {
+        "Hull Panel": 10,
+        "Structural Frame": 10,
+        "Titanium Brace": 10,
+        "Composite Panel": 5,
+        "Actuator": 5
+      },
+      "base_fee_c": 1440,
+      "base_seconds": 86400,
+      "description": "Utility slot equipment. Adds 100% base fuel capacity and +10% travel time per tank."
+    },
+    {
+      "id": "auxiliary_fuel_tank_t2",
+      "name": "T2 Auxiliary Fuel Tank",
+      "category": "Utility Equipment",
+      "tier": 2,
+      "inputs_items": {
+        "Hull Panel": 20,
+        "Steel Frame": 20,
+        "Titanium Brace": 20,
+        "Composite Panel": 10,
+        "Actuator": 10
+      },
+      "base_fee_c": 2880,
+      "base_seconds": 172800,
+      "description": "Utility slot equipment. Adds 100% base fuel capacity and +10% travel time per tank."
+    },
+    {
+      "id": "auxiliary_fuel_tank_t3",
+      "name": "T3 Auxiliary Fuel Tank",
+      "category": "Utility Equipment",
+      "tier": 3,
+      "inputs_items": {
+        "Hull Panel": 30,
+        "Titanium Steel Frame": 30,
+        "Titanium Brace": 30,
+        "Composite Panel": 15,
+        "Actuator": 15
+      },
+      "base_fee_c": 4320,
+      "base_seconds": 259200,
+      "description": "Utility slot equipment. Adds 100% base fuel capacity and +10% travel time per tank."
+    },
+    {
+      "id": "engine_t1_1",
       "name": "T1 Engine 1",
       "category": "Engines",
       "tier": 1,
@@ -2695,10 +2941,10 @@
       },
       "base_fee_c": 120,
       "base_seconds": 7200,
-      "description": "No fuel required.",
-      "status": "screenshot verified"
+      "description": "No fuel required."
     },
     {
+      "id": "engine_t1_2",
       "name": "T1 Engine 2",
       "category": "Engines",
       "tier": 1,
@@ -2711,10 +2957,86 @@
       },
       "base_fee_c": 360,
       "base_seconds": 21600,
-      "description": "No fuel required.",
-      "status": "screenshot verified"
+      "description": "No fuel required."
     },
     {
+      "id": "engine_t2_1",
+      "name": "T2 Engine 1",
+      "category": "Engines",
+      "tier": 2,
+      "inputs_items": {
+        "Steel Frame": 2,
+        "Wiring Bundle": 2,
+        "Silver-plated Circuit Board": 2,
+        "Pressure Vessel": 2,
+        "Heat Sink": 2,
+        "Titanium Brace": 2,
+        "Sensor Array": 2
+      },
+      "base_fee_c": 240,
+      "base_seconds": 14400,
+      "description": "No fuel required."
+    },
+    {
+      "id": "engine_t2_2",
+      "name": "T2 Engine 2",
+      "category": "Engines",
+      "tier": 2,
+      "inputs_items": {
+        "Steel Frame": 6,
+        "Wiring Bundle": 6,
+        "Silver-plated Circuit Board": 6,
+        "Pressure Vessel": 6,
+        "Heat Sink": 6,
+        "Titanium Brace": 6,
+        "Sensor Array": 6
+      },
+      "base_fee_c": 720,
+      "base_seconds": 43200,
+      "description": "No fuel required."
+    },
+    {
+      "id": "engine_t3_1",
+      "name": "T3 Engine 1",
+      "category": "Engines",
+      "tier": 3,
+      "inputs_items": {
+        "Titanium Steel Frame": 3,
+        "Wiring Bundle": 3,
+        "Gold-plated Circuit Board": 3,
+        "Pressure Vessel": 3,
+        "Heat Sink": 3,
+        "Titanium Brace": 3,
+        "Sensor Array": 3,
+        "Radiation Shield": 3,
+        "Composite Panel": 3
+      },
+      "base_fee_c": 480,
+      "base_seconds": 28800,
+      "description": "No fuel required."
+    },
+    {
+      "id": "engine_t3_2",
+      "name": "T3 Engine 2",
+      "category": "Engines",
+      "tier": 3,
+      "inputs_items": {
+        "Titanium Steel Frame": 9,
+        "Wiring Bundle": 9,
+        "Gold-plated Circuit Board": 9,
+        "Pressure Vessel": 9,
+        "Heat Sink": 9,
+        "Titanium Brace": 9,
+        "Sensor Array": 9,
+        "Radiation Shield": 9,
+        "Composite Panel": 9
+      },
+      "base_fee_c": 1440,
+      "base_seconds": 86400,
+      "description": "No fuel required."
+    },
+    {
+      "id": "fuel_engine_t1",
       "name": "T1 Fuel Powered Engine",
       "category": "Engines",
       "tier": 1,
@@ -2729,53 +3051,17 @@
       },
       "base_fee_c": 360,
       "base_seconds": 21600,
-      "description": "Requires Fuel Cartridge only if Fuel Powered.",
-      "status": "screenshot verified"
+      "description": "Uses Liquid Hydrogen Cartridges for powered flight."
     },
     {
-      "name": "T2 Engine 1",
-      "category": "Engines",
-      "tier": 2,
-      "inputs_items": {
-        "Steel Frame": 2,
-        "Wiring Bundle": 2,
-        "Silver-Plated Circuit Board": 2,
-        "Pressure Vessel": 2,
-        "Heat Sink": 2,
-        "Titanium Brace": 2,
-        "Sensor Array": 2
-      },
-      "base_fee_c": 240,
-      "base_seconds": 14400,
-      "description": "No fuel required.",
-      "status": "screenshot verified"
-    },
-    {
-      "name": "T2 Engine 2",
-      "category": "Engines",
-      "tier": 2,
-      "inputs_items": {
-        "Steel Frame": 6,
-        "Wiring Bundle": 6,
-        "Silver-Plated Circuit Board": 6,
-        "Pressure Vessel": 6,
-        "Heat Sink": 6,
-        "Titanium Brace": 6,
-        "Sensor Array": 6
-      },
-      "base_fee_c": 720,
-      "base_seconds": 43200,
-      "description": "No fuel required.",
-      "status": "screenshot verified"
-    },
-    {
+      "id": "fuel_engine_t2",
       "name": "T2 Fuel Powered Engine",
       "category": "Engines",
       "tier": 2,
       "inputs_items": {
         "Steel Frame": 6,
         "Wiring Bundle": 6,
-        "Silver-Plated Circuit Board": 6,
+        "Silver-plated Circuit Board": 6,
         "Pressure Vessel": 6,
         "Heat Sink": 6,
         "Titanium Brace": 6,
@@ -2784,57 +3070,17 @@
       },
       "base_fee_c": 720,
       "base_seconds": 43200,
-      "description": "Requires Fuel Cartridge only if Fuel Powered.",
-      "status": "screenshot verified"
+      "description": "Uses Liquid Hydrogen Cartridges for powered flight."
     },
     {
-      "name": "T3 Engine 1",
-      "category": "Engines",
-      "tier": 3,
-      "inputs_items": {
-        "Titanium Steel Frame": 3,
-        "Wiring Bundle": 3,
-        "Gold-Plated Circuit Board": 3,
-        "Pressure Vessel": 3,
-        "Heat Sink": 3,
-        "Titanium Brace": 3,
-        "Sensor Array": 3,
-        "Radiation Shield": 3,
-        "Composite Panel": 3
-      },
-      "base_fee_c": 360,
-      "base_seconds": 21600,
-      "description": "No fuel required.",
-      "status": "screenshot verified"
-    },
-    {
-      "name": "T3 Engine 2",
-      "category": "Engines",
-      "tier": 3,
-      "inputs_items": {
-        "Titanium Steel Frame": 9,
-        "Wiring Bundle": 9,
-        "Gold-Plated Circuit Board": 9,
-        "Pressure Vessel": 9,
-        "Heat Sink": 9,
-        "Titanium Brace": 9,
-        "Sensor Array": 9,
-        "Radiation Shield": 9,
-        "Composite Panel": 9
-      },
-      "base_fee_c": 1080,
-      "base_seconds": 64800,
-      "description": "No fuel required.",
-      "status": "screenshot verified"
-    },
-    {
+      "id": "fuel_engine_t3",
       "name": "T3 Fuel Powered Engine",
       "category": "Engines",
       "tier": 3,
       "inputs_items": {
         "Titanium Steel Frame": 9,
         "Wiring Bundle": 9,
-        "Gold-Plated Circuit Board": 9,
+        "Gold-plated Circuit Board": 9,
         "Pressure Vessel": 9,
         "Heat Sink": 9,
         "Titanium Brace": 9,
@@ -2843,152 +3089,312 @@
         "Composite Panel": 9,
         "Ceramic Liner": 6
       },
-      "base_fee_c": 1080,
-      "base_seconds": 64800,
-      "description": "Requires Fuel Cartridge only if Fuel Powered.",
-      "status": "screenshot verified"
-    },
-    {
-      "name": "T1 Cargo Expansion",
-      "category": "Utility Equipment",
-      "tier": 1,
-      "inputs_items": {
-        "Hull Panel": 10,
-        "Structural Frame": 10,
-        "Titanium Brace": 10,
-        "Composite Panel": 5,
-        "Actuator": 5
-      },
       "base_fee_c": 1440,
       "base_seconds": 86400,
-      "description": "Utility slot equipment. Doubles cargo slot depth, +50% travel time.",
-      "status": "screenshot verified"
+      "description": "Uses Liquid Hydrogen Cartridges for powered flight."
     },
     {
-      "name": "T1 Auxiliary Fuel Tank",
-      "category": "Utility Equipment",
+      "id": "drone_bay_t1_1",
+      "name": "T1 Drone Bay 1",
+      "category": "Drone Bays",
       "tier": 1,
       "inputs_items": {
-        "Hull Panel": 10,
-        "Structural Frame": 10,
-        "Titanium Brace": 10,
-        "Composite Panel": 5,
-        "Actuator": 5
+        "Structural Frame": 1,
+        "Wiring Bundle": 1,
+        "Circuit Board": 1,
+        "Actuator": 1
       },
-      "base_fee_c": 1440,
-      "base_seconds": 86400,
-      "description": "Utility slot equipment. Adds 100% base fuel capacity and +10% travel time per tank.",
-      "status": "screenshot verified"
+      "base_fee_c": 360,
+      "base_seconds": 21600,
+      "description": "Holds 1 hauling drone."
     },
     {
-      "name": "T2 Cargo Expansion",
-      "category": "Utility Equipment",
+      "id": "drone_bay_t1_2",
+      "name": "T1 Drone Bay 2",
+      "category": "Drone Bays",
+      "tier": 1,
+      "inputs_items": {
+        "Structural Frame": 3,
+        "Wiring Bundle": 3,
+        "Circuit Board": 3,
+        "Actuator": 3
+      },
+      "base_fee_c": 360,
+      "base_seconds": 21600,
+      "description": "Holds 2 hauling drones."
+    },
+    {
+      "id": "drone_bay_t2_1",
+      "name": "T2 Drone Bay 1",
+      "category": "Drone Bays",
       "tier": 2,
       "inputs_items": {
-        "Hull Panel": 20,
-        "Steel Frame": 20,
-        "Titanium Brace": 20,
-        "Composite Panel": 10,
-        "Actuator": 10
+        "Steel Frame": 2,
+        "Wiring Bundle": 2,
+        "Silver-plated Circuit Board": 2,
+        "Actuator": 2,
+        "Titanium Brace": 2,
+        "Sensor Array": 2
       },
-      "base_fee_c": 2880,
-      "base_seconds": 172800,
-      "description": "Utility slot equipment. Doubles cargo slot depth, +50% travel time.",
-      "status": "screenshot verified"
+      "base_fee_c": 360,
+      "base_seconds": 21600,
+      "description": "Holds 3 hauling drones."
     },
     {
-      "name": "T2 Auxiliary Fuel Tank",
-      "category": "Utility Equipment",
+      "id": "drone_bay_t2_2",
+      "name": "T2 Drone Bay 2",
+      "category": "Drone Bays",
       "tier": 2,
       "inputs_items": {
-        "Hull Panel": 20,
-        "Steel Frame": 20,
-        "Titanium Brace": 20,
-        "Composite Panel": 10,
-        "Actuator": 10
+        "Steel Frame": 6,
+        "Wiring Bundle": 6,
+        "Silver-plated Circuit Board": 6,
+        "Actuator": 6,
+        "Titanium Brace": 6,
+        "Sensor Array": 6
       },
-      "base_fee_c": 2880,
-      "base_seconds": 172800,
-      "description": "Utility slot equipment. Adds 100% base fuel capacity and +10% travel time per tank.",
-      "status": "screenshot verified"
+      "base_fee_c": 360,
+      "base_seconds": 21600,
+      "description": "Holds 4 hauling drones."
     },
     {
-      "name": "T3 Cargo Expansion",
-      "category": "Utility Equipment",
+      "id": "drone_bay_t3_1",
+      "name": "T3 Drone Bay 1",
+      "category": "Drone Bays",
       "tier": 3,
       "inputs_items": {
-        "Hull Panel": 30,
-        "Titanium Steel Frame": 30,
-        "Titanium Brace": 30,
-        "Composite Panel": 15,
-        "Actuator": 15
+        "Titanium Steel Frame": 3,
+        "Wiring Bundle": 3,
+        "Gold-plated Circuit Board": 3,
+        "Actuator": 3,
+        "Titanium Brace": 3,
+        "Sensor Array": 3,
+        "Radiation Shield": 3,
+        "Composite Panel": 3
       },
-      "base_fee_c": 4320,
-      "base_seconds": 259200,
-      "description": "Utility slot equipment. Doubles cargo slot depth, +50% travel time.",
-      "status": "screenshot verified"
+      "base_fee_c": 360,
+      "base_seconds": 21600,
+      "description": "Holds 5 hauling drones."
     },
     {
-      "name": "T3 Auxiliary Fuel Tank",
-      "category": "Utility Equipment",
+      "id": "drone_bay_t3_2",
+      "name": "T3 Drone Bay 2",
+      "category": "Drone Bays",
       "tier": 3,
       "inputs_items": {
-        "Hull Panel": 30,
-        "Titanium Steel Frame": 30,
-        "Titanium Brace": 30,
-        "Composite Panel": 15,
-        "Actuator": 15
+        "Titanium Steel Frame": 9,
+        "Wiring Bundle": 9,
+        "Gold-plated Circuit Board": 9,
+        "Actuator": 9,
+        "Titanium Brace": 9,
+        "Sensor Array": 9,
+        "Radiation Shield": 9,
+        "Composite Panel": 9
       },
-      "base_fee_c": 4320,
-      "base_seconds": 259200,
-      "description": "Utility slot equipment. Adds 100% base fuel capacity and +10% travel time per tank.",
-      "status": "screenshot verified"
+      "base_fee_c": 360,
+      "base_seconds": 21600,
+      "description": "Holds 6 hauling drones."
     },
     {
-      "name": "Radar",
+      "id": "hauling_drone_t1_capacity",
+      "name": "T1 Capacity Drone",
+      "category": "Drones",
+      "tier": 1,
+      "inputs_items": {
+        "Structural Frame": 1,
+        "Wiring Bundle": 1,
+        "Circuit Board": 1,
+        "Actuator": 1
+      },
+      "base_fee_c": 120,
+      "base_seconds": 7200,
+      "description": "Reusable hauling drone."
+    },
+    {
+      "id": "hauling_drone_t1_speed",
+      "name": "T1 Speed Drone",
+      "category": "Drones",
+      "tier": 1,
+      "inputs_items": {
+        "Structural Frame": 1,
+        "Wiring Bundle": 1,
+        "Circuit Board": 1,
+        "Actuator": 1
+      },
+      "base_fee_c": 120,
+      "base_seconds": 7200,
+      "description": "Reusable hauling drone."
+    },
+    {
+      "id": "hauling_drone_t2_capacity",
+      "name": "T2 Capacity Drone",
+      "category": "Drones",
+      "tier": 2,
+      "inputs_items": {
+        "Steel Frame": 2,
+        "Wiring Bundle": 2,
+        "Silver-plated Circuit Board": 2,
+        "Actuator": 2,
+        "Titanium Brace": 2,
+        "Sensor Array": 2
+      },
+      "base_fee_c": 240,
+      "base_seconds": 14400,
+      "description": "Reusable hauling drone."
+    },
+    {
+      "id": "hauling_drone_t2_speed",
+      "name": "T2 Speed Drone",
+      "category": "Drones",
+      "tier": 2,
+      "inputs_items": {
+        "Steel Frame": 2,
+        "Wiring Bundle": 2,
+        "Silver-plated Circuit Board": 2,
+        "Actuator": 2,
+        "Titanium Brace": 2,
+        "Sensor Array": 2
+      },
+      "base_fee_c": 240,
+      "base_seconds": 14400,
+      "description": "Reusable hauling drone."
+    },
+    {
+      "id": "hauling_drone_t3_capacity",
+      "name": "T3 Capacity Drone",
+      "category": "Drones",
+      "tier": 3,
+      "inputs_items": {
+        "Titanium Steel Frame": 3,
+        "Wiring Bundle": 3,
+        "Gold-plated Circuit Board": 3,
+        "Actuator": 3,
+        "Titanium Brace": 3,
+        "Sensor Array": 3,
+        "Radiation Shield": 3,
+        "Composite Panel": 3
+      },
+      "base_fee_c": 480,
+      "base_seconds": 28800,
+      "description": "Reusable hauling drone."
+    },
+    {
+      "id": "hauling_drone_t3_speed",
+      "name": "T3 Speed Drone",
+      "category": "Drones",
+      "tier": 3,
+      "inputs_items": {
+        "Titanium Steel Frame": 3,
+        "Wiring Bundle": 3,
+        "Gold-plated Circuit Board": 3,
+        "Actuator": 3,
+        "Titanium Brace": 3,
+        "Sensor Array": 3,
+        "Radiation Shield": 3,
+        "Composite Panel": 3
+      },
+      "base_fee_c": 480,
+      "base_seconds": 28800,
+      "description": "Reusable hauling drone."
+    },
+    {
+      "id": "habitat_module",
+      "name": "Habitat Module",
       "category": "Station Equipment",
       "tier": 0,
       "inputs_items": {
-        "Hull Panel": 30,
-        "Structural Frame": 30,
-        "Titanium Brace": 40,
-        "Composite Panel": 40,
-        "Radiation Shield": 30,
-        "Ceramic Liner": 30,
-        "Pressure Vessel": 20,
-        "Actuator": 30,
-        "Wiring Bundle": 40,
-        "Circuit Board": 40,
-        "Sensor Array": 60,
-        "Heat Sink": 25
+        "Hull Panel": 3,
+        "Steel Frame": 2,
+        "Composite Panel": 2,
+        "Pressure Vessel": 2,
+        "Wiring Bundle": 1,
+        "Silver-plated Circuit Board": 1
       },
-      "base_fee_c": 4320,
-      "base_seconds": 259200,
-      "description": "5-distance survey radius; consumes Nuclear Fuel Cartridges; nonrecoverable.",
-      "status": "screenshot verified"
+      "base_fee_c": 30,
+      "base_seconds": 1800,
+      "description": "100 m³ station equipment."
     },
     {
-      "name": "Claim Anchor",
+      "id": "airlock",
+      "name": "Airlock",
       "category": "Station Equipment",
       "tier": 0,
       "inputs_items": {
-        "Hull Panel": 40,
-        "Structural Frame": 30,
-        "Titanium Brace": 30,
-        "Composite Panel": 30,
-        "Radiation Shield": 20,
-        "Ceramic Liner": 20,
-        "Pressure Vessel": 20,
-        "Actuator": 20,
-        "Wiring Bundle": 20,
-        "Circuit Board": 20,
-        "Sensor Array": 8,
-        "Heat Sink": 5
+        "Hull Panel": 2,
+        "Pressure Vessel": 2,
+        "Actuator": 2,
+        "Circuit Board": 1,
+        "Wiring Bundle": 1
       },
-      "base_fee_c": 2880,
-      "base_seconds": 172800,
-      "description": "Reserves asteroid mining; uses 5 m³ fuel/hour; recoverable.",
-      "status": "screenshot verified"
+      "base_fee_c": 30,
+      "base_seconds": 1800,
+      "description": "100 m³ station equipment."
+    },
+    {
+      "id": "storage_container",
+      "name": "Storage Container",
+      "category": "Station Equipment",
+      "tier": 0,
+      "inputs_items": {
+        "Hull Panel": 4,
+        "Structural Frame": 3,
+        "Composite Panel": 2,
+        "Actuator": 1
+      },
+      "base_fee_c": 30,
+      "base_seconds": 1800,
+      "description": "100 m³ station equipment."
+    },
+    {
+      "id": "printing_assembly",
+      "name": "Printing Assembly",
+      "category": "Station Equipment",
+      "tier": 0,
+      "inputs_items": {
+        "Structural Frame": 2,
+        "Actuator": 3,
+        "Circuit Board": 2,
+        "Wiring Bundle": 2,
+        "Heat Sink": 1,
+        "Gold-plated Circuit Board": 1
+      },
+      "base_fee_c": 30,
+      "base_seconds": 1800,
+      "description": "100 m³ station equipment."
+    },
+    {
+      "id": "fabrication_arm",
+      "name": "Fabrication Arm",
+      "category": "Station Equipment",
+      "tier": 0,
+      "inputs_items": {
+        "Structural Frame": 2,
+        "Actuator": 4,
+        "Circuit Board": 2,
+        "Wiring Bundle": 1,
+        "Titanium Brace": 1,
+        "Gold-plated Circuit Board": 1
+      },
+      "base_fee_c": 30,
+      "base_seconds": 1800,
+      "description": "100 m³ station equipment."
+    },
+    {
+      "id": "refinery_core",
+      "name": "Refinery Core",
+      "category": "Station Equipment",
+      "tier": 0,
+      "inputs_items": {
+        "Pressure Vessel": 3,
+        "Ceramic Liner": 3,
+        "Heat Sink": 2,
+        "Structural Frame": 1,
+        "Circuit Board": 1,
+        "Gold-plated Circuit Board": 1
+      },
+      "base_fee_c": 30,
+      "base_seconds": 1800,
+      "description": "100 m³ station equipment."
     }
   ],
   "drone_specs": [
@@ -3047,8 +3453,19 @@
       "tank_m3": 6
     }
   ],
-  "notes_v2": {
-    "drone_model": "Steady-state, round-trip distance, no load/unload delay, continuous refueling, simultaneous drone trips, and no flight congestion. This is a theoretical ceiling, not a guarantee of infinite mining.",
-    "talent_math": "Industrialist compounds 0.98^rank; speed bonuses assumed divide baseline duration by (1+bonus). Exact rounding/stacking unverified."
-  }
+  "source_revision": "da4a5b5aa4e39119b8bdc0fb29c5590bf13697b2",
+  "reference_items": [
+    {
+      "name": "Radar",
+      "description": "Legacy deployable radar. Existing units can still be deployed. Fabrication has retired."
+    },
+    {
+      "name": "Claim Anchor",
+      "description": "Legacy deployable equipment for asteroid claims. Existing anchors remain usable. Fabrication has retired."
+    },
+    {
+      "name": "Data Capsule",
+      "description": "Temporary Veyra observation-stage item. Collect capsules from observation posts by ship and deliver them to Directorate HQ. Each occupies 1 m³."
+    }
+  ]
 }
