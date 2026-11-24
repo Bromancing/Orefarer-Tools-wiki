@@ -243,7 +243,23 @@ function renderStationsProjectsPage() {
     let s = '';
     let q = $('search').value.toLowerCase();
     if (active === 'Stations & Projects')
-        s = panel('Recorded station locations', '<p>These community records are a snapshot. Check the game map for current facilities and newly built stations.</p>' + table(['Station', 'Coordinates', 'Facilities'], filtered(D.stations).map(x => [x.name, x.coordinates.join(', '), x.facilities.join(', ')]))) + panel('How community projects work', `<p>Community projects allow players to deliver the goods specified by each project. Station maintenance uses whole fabricated modules, and Slingshot construction uses printed components. The game pays the displayed reward immediately when a contribution is made.</p><h3>Example: Add two refining lanes</h3><p>This is an <b>illustrative project</b>, not a current project listing. Imagine a station has a project requiring 100 m³ refined Iron and 50 m³ refined Copper. Completing it would add two shared refining lanes, letting two additional refining orders process at the same time.</p><p>If the project offers 12c per m³ of Iron, contributing 10 m³ Iron would immediately pay <b>120c</b> and advance the project's progress by 10 m³.</p><p>Ordinary projects expire after seven days without a contribution. Equipment maintenance and Slingshot construction remain open until completion or administrative closure. Veyra event projects follow their stage deadlines.</p>${info('The example amounts and reward rate are hypothetical. Always check the current in-game project for requirements, rates, location, and status.')}`) + panel('Station operations', `<p>Station inventory is private to each player. Refining, printing, and fabrication have private and shared production lanes. A player can rent one extra private lane per facility at a station for 5,000 credits for 24 hours. Canceling a queued order refunds its processing fee; canceling an active order does not.</p><p>Stations are permanent. The map is a two-dimensional coordinate grid centered on Directorate HQ at (0, 0). Discovered spaces refresh after 24 hours unless active asteroid mining pauses expiration.</p>`);
+        s =
+            panel(
+                "Recorded station locations",
+                "<p>These community records are a snapshot. Check the game map for current facilities and newly built stations.</p>" +
+                    table(
+                        ["Station", "Coordinates", "Facilities"],
+                        filtered(D.stations).map((x) => [x.name, x.coordinates.join(", "), x.facilities.join(", ")]),
+                    ),
+            ) +
+            panel(
+                "How community projects work",
+                `<p>Community projects allow players to deliver the goods specified by each project. Station maintenance uses whole fabricated modules, and Slingshot construction uses printed components. The game pays the displayed reward immediately when a contribution is made.</p><h3>Example: Add two refining lanes</h3><p>This is an <b>illustrative project</b>, not a current project listing. Imagine a station has a project requiring 100 m³ refined Iron and 50 m³ refined Copper. Completing it would add two shared refining lanes, letting two additional refining orders process at the same time.</p><p>If the project offers 12c per m³ of Iron, contributing 10 m³ Iron would immediately pay <b>120c</b> and advance the project's progress by 10 m³.</p><p>Ordinary projects expire after seven days without a contribution. Equipment maintenance and Slingshot construction remain open until completion or administrative closure.</p>${info("The example amounts and reward rate are hypothetical. Always check the current in-game project for requirements, rates, location, and status.")}`,
+            ) +
+            panel(
+                "Station operations",
+                `<p>Station inventory is private to each player. Refining, printing, and fabrication have private and shared production lanes. A player can rent one extra private lane per facility at a station for 5,000 credits for 24 hours. Canceling a queued order refunds its processing fee; canceling an active order does not.</p><p>Stations are permanent. The map is a two-dimensional coordinate grid centered on Directorate HQ at (0, 0). Discovered spaces refresh after 24 hours unless active asteroid mining pauses expiration.</p>`,
+            );
     return s;
 }
 
