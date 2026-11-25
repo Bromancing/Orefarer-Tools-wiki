@@ -1,4 +1,4 @@
-# Orefarer Wiki v13
+# Orefarer Wiki v1.01
 
 This is the editable, multi-file edition of the Orefarer Wiki.
 
@@ -20,6 +20,10 @@ If your browser blocks local scripts, serve the folder using a local HTTP server
 - `cart.js`: Shopping cart and crafting-material breakdown.
 - `bootstrap.js`: Navigation and startup.
 
+## Skills and talents
+
+In **Skills & Talents**, enter skill levels or total XP on the Skills tab. On the Talents tab, use + and − to plan ranks, then select **Apply** to save them to the local calculator profile. Each skill level above one grants a Talent Point. Older saved levels start at the minimum XP for that level.
+
 ## Community projects
 
 The outdated project directory was removed. The Stations & Projects page now contains a hypothetical project example explaining the mechanics. It does **not** claim to show currently active projects.
@@ -27,9 +31,9 @@ The outdated project directory was removed. The Stations & Projects page now con
 ## Notes
 
 - Browser-saved settings use the same key as v12, where the browser permits local storage.
-- Do not publish speculative higher-tier mining laser quantities as verified recipes.
-- This version retains the existing calculators and data model. It is a maintainability refactor, not a recalibration of game mechanics.
+- Catalogue values and calculator rules use MMO main at `da4a5b5a`. Station records are historical community observations.
+- Edit `data.json` and the source scripts, then run `node build.mjs` to regenerate both `data.js` and the standalone HTML. Node is required only for rebuilding.
 
 ## Single-file offline version
 
-Open `Orefarer_Wiki_Standalone_v13.html` directly in your browser. It embeds all styles, scripts, and game data. Keep the other files for readable editing and future development.
+Open `Orefarer_Wiki_Standalone_v1.01.html` directly in your browser. It embeds all styles, scripts, and game data. Keep the other files for readable editing and future development.

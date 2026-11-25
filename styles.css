@@ -677,3 +677,35 @@ sup {
 /* In-game talent category ordering. */
 .talent-group { margin: 16px 0 24px; }
 .talent-group h3 { margin: 0 0 10px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+
+.profile-tabs, .skill-values, .rank-actions {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.profile-tabs { margin-bottom: 1rem; }
+.profile-tabs .action[aria-pressed="true"] { border-color: var(--gold); color: var(--gold); }
+.profile-stat, .talent-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .4rem 1rem;
+}
+.profile-stat { padding: .35rem 0; }
+.wiki-skill, .wiki-talent { padding: .45rem 0; border-top: 1px solid var(--line); }
+.wiki-skill strong { text-transform: uppercase; font-size: .85rem; }
+.skill-values { flex-wrap: wrap; font-size: .8rem; }
+.skill-values input { padding: .25rem; width: 7rem; }
+.skill-values input[data-level] { width: 4rem; }
+.wiki-skill progress { width: 100%; height: .45rem; accent-color: var(--gold); }
+.talent-heading > strong { flex: 1; }
+.rank-actions button { color: inherit; background: #294436; border: 1px solid var(--line); border-radius: 3px; }
+.rank-actions small { min-width: 3rem; }
+.rank-actions button:disabled, #apply-ranks:disabled { opacity: .5; cursor: default; }
+.wiki-talent[data-planned="true"] { border-left: 2px solid var(--gold); padding-left: .5rem; }
+@media (max-width: 600px) {
+  .talent-heading { display: grid; grid-template-columns: 1fr auto; }
+  .talent-heading > span { grid-column: 1; }
+  .rank-actions { grid-column: 2; grid-row: 1 / 3; }
+}

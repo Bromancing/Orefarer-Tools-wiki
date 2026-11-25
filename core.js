@@ -12,7 +12,7 @@ const esc = x => String(x ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': 
 
 const n = x => Math.max(0, Number(x) || 0);
 
-const f = (x, d = 2) => Number.isFinite(x) ? x.toLocaleString('en-US', { minimumFractionDigits: Math.min(2, d), maximumFractionDigits: 2 }) : '—';
+const f = (x, d = 2) => Number.isFinite(x) ? x.toLocaleString('en-US', { minimumFractionDigits: Math.min(2, d), maximumFractionDigits: Math.max(2, d) }) : '—';
 
 const fmt = o => Object.entries(o || {}).map(([k, v]) => `${f(Number(v), 2)} ${k}`).join(', ');
 
@@ -29,6 +29,8 @@ const rank = name => n(window.profile?.talents?.[name]);
 
 const skill = name => n(window.profile?.skills?.[name]);
 
+const droneLimit = () => 2 + Math.floor(skill('Drone Operator') / 10);
+
 const industrial = () => Math.pow(.98, rank('Industrialist'));
 
 const fee = base => base * industrial();
@@ -44,8 +46,6 @@ const filtered = items => items.filter(x => JSON.stringify(x).toLowerCase().incl
 const warnInfo = (message) => `<span class="warn-wrap"><strong class="warn-label">Warning</strong><details class="info-tip warn-tip"><summary aria-label="Warning details" title="Warning details">i</summary><div>${message}</div></details></span>`;
 
 const info = (message) => `<details class="info-tip"><summary aria-label="More information" title="More information">i</summary><div>${message}</div></details>`;
-
-const note = info('Baseline values may be inferred from discounted screenshots. Speed bonuses are modeled as rate increases; exact rounding and modifier stacking are not verified.');
 
 const STORE = 'orefarer-wiki-v3';
 
@@ -73,7 +73,7 @@ const selected = (id, val) => saved.calcs[id] === val ? ' selected' : '';
 
 const resetCalcs = () => { saved.calcs = {}; save(); render(); };
 
-const resetAll = () => { saved.cart = {}; saved.calcs = {}; window.profile = JSON.parse(JSON.stringify(D.character_defaults)); save(); render(); };
+const resetAll = () => { draftRanks = {}; saved.cart = {}; saved.calcs = {}; window.profile = JSON.parse(JSON.stringify(D.character_defaults)); save(); render(); };
 
 const resetButton = (scope) => `<div class="reset-tools"><button class="action" data-reset="${scope}">Reset calculator</button></div>`;
 
@@ -81,7 +81,7 @@ const unit = x => String(x).replace(/m³/g, 'm<sup>3</sup>');
 
 const cartKey = (kind, name) => kind + '|' + name;
 
-const cartButton = (kind, name) => { const key = cartKey(kind, name), qty = saved.cart?.[key]?.qty ?? 0; const extra = kind === 'refined' || kind === 'printing' ? 5 : 0; return `<span class="cart-control" data-cart-control="${esc(key)}"><label class="cart-quantity-label">Quantity<input class="catalog-qty" aria-label="Quantity of ${esc(name)}" type="number" min="0" step="1" value="${qty || 1}" data-cart-kind="${esc(kind)}" data-cart-name="${esc(name)}"></label><button type="button" class="action cart-increment" data-amount="1" title="Click for +1; hold to add 10 per second">+1</button>${extra ? '<button type="button" class="action cart-increment" data-amount="5" title="Click for +5; hold to add 10 per second">+5</button>' : ''}<button class="action add-cart ${qty ? 'in-cart' : ''}" data-cart-kind="${esc(kind)}" data-cart-name="${esc(name)}">${qty ? 'Remove from cart' : 'Add to cart'}</button><span class="cart-status">${qty ? `In cart: ${f(qty, 2)}` : 'Not in cart'}</span></span>`; };
+const cartButton = (kind, name) => { const key = cartKey(kind, name), qty = saved.cart?.[key]?.qty ?? 0; const extra = kind === 'refined' || kind === 'printed' ? 5 : 0; return `<span class="cart-control" data-cart-control="${esc(key)}"><label class="cart-quantity-label">Quantity<input class="catalog-qty" aria-label="Quantity of ${esc(name)}" type="number" min="0" step="1" value="${qty || 1}" data-cart-kind="${esc(kind)}" data-cart-name="${esc(name)}"></label><button type="button" class="action cart-increment" data-amount="1" title="Click for +1; hold to add 10 per second">+1</button>${extra ? '<button type="button" class="action cart-increment" data-amount="5" title="Click for +5; hold to add 10 per second">+5</button>' : ''}<button class="action add-cart ${qty ? 'in-cart' : ''}" data-cart-kind="${esc(kind)}" data-cart-name="${esc(name)}">${qty ? 'Remove from cart' : 'Add to cart'}</button><span class="cart-status">${qty ? `In cart: ${f(qty, 2)}` : 'Not in cart'}</span></span>`; };
 
 const expandControls = () => `<div class="expand-tools"><button class="action" data-expand="all">Expand all</button><button class="action" data-expand="none">Collapse all</button></div>`;
 
